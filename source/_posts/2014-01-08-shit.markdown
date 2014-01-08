@@ -1,0 +1,7 @@
+---
+layout: post
+title: "shit"
+date: 2014-01-08 16:36:06 +0800
+comments: true
+categories: 
+---
