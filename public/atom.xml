@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://heydelilah.github.io/atom.xml" rel="self"/>
   <link href="http://heydelilah.github.io/"/>
-  <updated>2014-01-09T10:21:18+08:00</updated>
+  <updated>2014-01-09T17:56:33+08:00</updated>
   <id>http://heydelilah.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -14,20 +14,18 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Shit]]></title>
-    <link href="http://heydelilah.github.io/blog/2014/01/08/shit/"/>
-    <updated>2014-01-08T16:36:06+08:00</updated>
-    <id>http://heydelilah.github.io/blog/2014/01/08/shit</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Test]]></title>
-    <link href="http://heydelilah.github.io/blog/2014/01/08/test/"/>
-    <updated>2014-01-08T15:48:24+08:00</updated>
-    <id>http://heydelilah.github.io/blog/2014/01/08/test</id>
-    <content type="html"><![CDATA[
+    <title type="html"><![CDATA[First Post]]></title>
+    <link href="http://heydelilah.github.io/blog/2014/01/09/first-post/"/>
+    <updated>2014-01-09T17:39:14+08:00</updated>
+    <id>http://heydelilah.github.io/blog/2014/01/09/first-post</id>
+    <content type="html"><![CDATA[<h2>try markdown</h2>
+
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+
 ]]></content>
   </entry>
   
