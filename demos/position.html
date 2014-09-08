@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Position</title>
+</head>
+<body>
+	<style>
+		#boxes{
+			width: 60px;
+			height: 60px;
+			background: blue;
+			position: absolute;
+		}
+		#reference{
+			width: 450px;
+			height: 150px;
+			margin: 60px auto;
+			background: green;
+		}
+		#desc{
+			width: 200px;
+			margin:0 auto;
+		}
+	</style>
+	<script src="../libs/jquery.js"></script>
+	<div id="reference"></div>
+	<div id="boxes"></div>
+	<div id="desc">
+		<input type="button" value="Random">
+		<span id="text"></span>
+	</div>
+	<script>
+		var getPosition = function(dom, subject, mode){
+			subject = subject.get(0);
+			var position = {};
+
+			var left = mode.match('left') ? subject.offsetLeft : subject.offsetLeft + subject.offsetWidth;
+			var top = mode.match('top') ?  subject.offsetTop : subject.offsetTop + subject.offsetHeight;
+			var current = subject.offsetParent;
+
+			while (current !== null && current !== document.body){
+				left += current.offsetLeft;
+				top += current.offsetTop;
+				current = current.offsetParent;
+			}
+			var m = mode.split(',');
+			position.left = (m[0].match('left') || m[1].match('right')) ? left-dom.outerWidth() : left;
+			position.top = (m[0].match('top') || m[1].match('bottom')) ? top-dom.outerHeight() : top;
+
+			return position;
+		}
+
+		var create = function(){
+			var mode = ['left,top', 'left,bottom', 'right,top', 'right,bottom', 'top,left', 'top,right', 'bottom,left', 'bottom,right'];
+			var i = Math.round(Math.random()*(0-7)+7); // 生成0-7的随机数
+
+			var position = getPosition($('#boxes'), $('#reference'), mode[i]);
+			$('#boxes').css(position);
+			$('#text').text(mode[i]);
+		}
+
+		create();
+		$('input').on('click',create);
+
+	</script>
+
+
+</body>
+</html>
