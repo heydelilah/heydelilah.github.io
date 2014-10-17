@@ -3,13 +3,16 @@ layout: default
 title: Delilah
 ---
 
-  <div class="nav">
-  	<span>categories: </span>
-  	<a href="categories/note.html">Note</a>
-  </div>
 
 <div id="home">
   <h1>Blog Posts</h1>
+
+  <div class="nav">
+  	<span>Tags: </span>
+  	<a href="categories/note.html">Note</a>
+  	<a href="categories/js.html">Note</a>
+  </div>
+
   <ul class="posts">
     {% for post in site.posts %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
