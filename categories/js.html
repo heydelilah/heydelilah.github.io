@@ -6,6 +6,7 @@ title: JS
   <h1>Notes</h1>
   <ul class="posts">
     {% for post in site.posts %}
+      {{ post.categories }}
 
       {% if post.categories %}
       <li>
