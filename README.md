@@ -1,4 +1,4 @@
 heydelilah.github.io
 ====================
 
-my blog
+Delilahi's github blog.
