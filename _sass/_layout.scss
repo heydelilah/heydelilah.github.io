@@ -1,8 +1,16 @@
 /**
  * Site header
  */
+.home{
+    .rss-subscribe{
+        color: $grey-color;
+        a{
+            color: $grey-color;
+        }
+    }
+}
 .site-header {
-    border-top: 5px solid $brand-color;
+    border-top: 5px solid $brand-color-dark;
     border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
 
@@ -16,10 +24,13 @@
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
+    span{
+        color: $brand-color-dark;
+    }
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: $brand-color;
     }
 }
 
@@ -97,6 +108,7 @@
 }
 
 .footer-heading {
+    color: $brand-color;
     font-size: 18px;
     margin-bottom: $spacing-unit / 2;
 }
@@ -198,7 +210,7 @@
 }
 
 .post-title {
-    color: $brand-color;
+    // color: $brand-color;
     font-size: 42px;
     letter-spacing: -1px;
     line-height: 1;
@@ -234,4 +246,92 @@
             font-size: 18px;
         }
     }
+}
+
+// resume
+.resume {
+    .post-title{
+        text-align: center;
+    }
+    .desc{
+        .wrapper{
+            text-align: center;
+            p{
+                color: #999;
+            }
+        }
+        img{
+                margin-bottom:20px;
+            width: 150px;
+            height: 150px; 
+            -moz-border-radius: 75px;
+            -webkit-border-radius: 75px;
+            border-radius: 75px;    
+        }
+    }
+    .title{
+        margin-top: 40px;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .layout-col-2{
+        clear: both;
+        overflow: hidden;
+        .l1 {
+            float: left;
+            margin-right: 10px;
+            .thumb{
+                width: 46px;
+                height: 46px;
+            }
+        }
+        .l2{
+            position: relative;
+            float: left;
+            padding-top: 10px;
+            max-width: 380px;
+            h4{
+
+            }
+            span{
+                color: #999;
+                display: block;
+            }
+        }
+        .l3{
+            color: #999;
+            float: right;
+            text-align: right;
+        }
+    }
+    .box{
+        margin-top: 30px;
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .header{
+            overflow: hidden;
+            margin-bottom: 10px;
+            .name{
+
+            }
+            .duty{
+                color: #999;
+            }
+            .date{
+                color: #999;
+            }
+        }
+        .body{
+            p{
+
+            }
+        }
+    }
+
 }

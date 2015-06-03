@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HeyDelilah</title>
+    <description>Delilah(小虫)的个人博客
+</description>
+    <link>http://heydelilah.github.io//</link>
+    <atom:link href="http://heydelilah.github.io//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 03 Jun 2015 12:16:12 +0800</pubDate>
+    <lastBuildDate>Wed, 03 Jun 2015 12:16:12 +0800</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 03 Jun 2015 03:16:31 +0800</pubDate>
+        <link>http://heydelilah.github.io//jekyll/update/2015/06/03/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://heydelilah.github.io//jekyll/update/2015/06/03/welcome-to-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>跨域</title>
+        <description>&lt;h1 id=&quot;section&quot;&gt;跨域操作的一次尝试&lt;/h1&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;需求&lt;/h2&gt;
+
+&lt;p&gt;在页面A中，填写A页面的表单(dataA)，然后继续在A页面中去访问非同源的B页面，在B页面操作并获得数据dataB，跳回A页面保存全部数据。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;设计&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://heydelilah.github.io/data/cross/desc.png&quot; alt=&quot;通讯方式&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;通讯方式：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;客户端与客户端：&lt;code&gt;&amp;lt;iframe/&amp;gt;&lt;/code&gt;内嵌窗体&lt;/li&gt;
+  &lt;li&gt;客户端与服务器：ajax&lt;/li&gt;
+  &lt;li&gt;服务器与服务器：tcp&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;流程&lt;/h2&gt;
+
+&lt;h4 id=&quot;a&quot;&gt;1. 填写A页面的表单&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://heydelilah.github.io/data/cross/1.png&quot; alt=&quot;第1步&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;填写A页面的表单- dataA；&lt;/li&gt;
+  &lt;li&gt;A与B进行服务端对服务端的TCP通信：A用事先与B协议好的密钥key，向B请求连接；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;abb&quot;&gt;2. 在A页面中访问B页面，填写B页面表单&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://heydelilah.github.io/data/cross/2.png&quot; alt=&quot;第2步&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;B通过验证后，返回给A登录码(ticket)和B前端访问地址(url)；&lt;/li&gt;
+  &lt;li&gt;A前端生成一个全局回调函数名&lt;code&gt;cb_name&lt;/code&gt;;&lt;code&gt;cb_url&lt;/code&gt;为回跳地址;&lt;/li&gt;
+  &lt;li&gt;A在前端页面嵌入src为此url的子窗体，url上附带参数&lt;code&gt;cb_name&lt;/code&gt;和&lt;code&gt;cb_url&lt;/code&gt;,打开了B页面；（使用ticket通过B服务端的登录验证）&lt;/li&gt;
+  &lt;li&gt;用户在B页面操作&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;a-1&quot;&gt;3. 返回A页面，保存全部数据&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://heydelilah.github.io/data/cross/3.png&quot; alt=&quot;第3步&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;B前端重定向回A前端页面；&lt;code&gt;window.location.href = [cb_url]&lt;/code&gt; (此时&lt;code&gt;cb_url&lt;/code&gt;直接附带上&lt;code&gt;cb_name&lt;/code&gt;和dataB返回)&lt;/li&gt;
+  &lt;li&gt;回跳地址是一个静态页面，没有业务逻辑，只是负责处理回跳：
+    &lt;ol&gt;
+      &lt;li&gt;解析url,拿出searh里的dataB以及&lt;code&gt;cb_name&lt;/code&gt;；&lt;/li&gt;
+      &lt;li&gt;window.top 因为此时在在window的iframe下，所以要拿最高处的window对象;&lt;/li&gt;
+      &lt;li&gt;调用全局随机命名闭包函数。&lt;/li&gt;
+      &lt;li&gt;最后删除引用，释放空间&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;A服务器保存dataA和dataB到数据库；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;弊端：dataB只能是少量数据，因为是作为url附加参数返回的。&lt;/p&gt;
+
+&lt;h1 id=&quot;section-4&quot;&gt;在遵循浏览器同源策略下的跨域操作:&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;图片ping
+    &lt;ul&gt;
+      &lt;li&gt;只能发请求，没有数据返回；可方便地监听请求成功还是失败。&lt;/li&gt;
+      &lt;li&gt;应用场景：广告统计&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;jsonp
+    &lt;ul&gt;
+      &lt;li&gt;可发请求，也可获取从对方服务器返回的数据。&lt;/li&gt;
+      &lt;li&gt;应用场景：单点登录&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;iframe与window.fun()
+    &lt;ul&gt;
+      &lt;li&gt;与jsonp原理一样，但它可以打开对方网页，让用户在对方网页做操作。交互更加丰富。&lt;/li&gt;
+      &lt;li&gt;应用场景：同时需要用户在本地网站与非同源网站填写信息。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;access-control-allow-origin&quot;&gt;Access-Control-Allow-Origin&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;真正的直接支持跨域，而不是’达到跨域效果的跨域技术’；&lt;/li&gt;
+  &lt;li&gt;要考虑安全性问题；&lt;/li&gt;
+  &lt;li&gt;服务器也要做相应的回应处理（即返回&lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt;）；&lt;/li&gt;
+  &lt;li&gt;在IE下是XDR,chrome等浏览器的XHR直接支持。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 15 Oct 2014 07:37:00 +0800</pubDate>
+        <link>http://heydelilah.github.io//js/2014/10/15/%E8%B7%A8%E5%9F%9F.html</link>
+        <guid isPermaLink="true">http://heydelilah.github.io//js/2014/10/15/%E8%B7%A8%E5%9F%9F.html</guid>
+        
+        
+        <category>js</category>
+        
+      </item>
+    
+      <item>
+        <title>相对定位</title>
+        <description>&lt;h1 id=&quot;section&quot;&gt;相对定位&lt;/h1&gt;
+
+&lt;p&gt;获取某个DOM元素相对与另一个DOM元素的位置; &lt;code&gt;offsetLeft, offsetTop, clientHeight, clientWidth, offsetParent&lt;/code&gt;
+&lt;img src=&quot;http://heydelilah.github.io/data/position.png&quot; alt=&quot;八个方向&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;live-demohttpheydelilahgithubiodemospositionhtml&quot;&gt;&lt;a href=&quot;http://heydelilah.github.io/demos/position.html&quot;&gt;live demo&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;```
+var getPosition = function(dom, subject, mode){
+	subject = subject.get(0);
+	var position = {};&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var left = mode.match(&#39;left&#39;) ? subject.offsetLeft : subject.offsetLeft + subject.offsetWidth;
+var top = mode.match(&#39;top&#39;) ?  subject.offsetTop : subject.offsetTop + subject.offsetHeight;
+var current = subject.offsetParent;
+
+// 不断与父容器 (offsetParent对象) 累加 offsetTop,offsetLeft
+while (current !== null &amp;amp;&amp;amp; current !== document.body){
+	left += current.offsetLeft;
+	top += current.offsetTop;
+	current = current.offsetParent;
+}
+var m = mode.split(&#39;,&#39;);
+position.left = (m[0].match(&#39;left&#39;) || m[1].match(&#39;right&#39;)) ? left-dom.outerWidth() : left;
+position.top = (m[0].match(&#39;top&#39;) || m[1].match(&#39;bottom&#39;)) ? top-dom.outerHeight() : top;
+
+return position; } ```
+&lt;/code&gt;&lt;/pre&gt;
+
+</description>
+        <pubDate>Tue, 09 Sep 2014 06:37:00 +0800</pubDate>
+        <link>http://heydelilah.github.io//js/2014/09/09/%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D.html</link>
+        <guid isPermaLink="true">http://heydelilah.github.io//js/2014/09/09/%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D.html</guid>
+        
+        
+        <category>js</category>
+        
+      </item>
+    
+      <item>
+        <title>前后端分离</title>
+        <description>&lt;p&gt;时至今日，我才对“前后端分离”有了真正的理解。在一年的工作中，虽然一直是处于这个模式之下，但从没深究过。并不清楚为何每次开发都要先开启一个&lt;code&gt;nodeJS&lt;/code&gt;服务器。&lt;/p&gt;
+
+&lt;p&gt;前后端分离开发，就是在开发过程中，前端的所有资源文件都不依赖于后端服务器，后端只是负责数据层面的逻辑。&lt;/p&gt;
+
+&lt;p&gt;以目前我负责的这个项目来说，整个项目是一个SPA（single-page-application）；模块化开发，以&lt;code&gt;seajs&lt;/code&gt;作为模块加载器；按需加载，加载过的文件缓存在浏览器中。页面的切换通过css的&lt;code&gt;display:show/hide&lt;/code&gt;属性，不同页面的url通过不同的hash值来区分，前端可独立去设计url；获取数据通过Ajax方式向后端异步获取；前端框架是一个&lt;code&gt;mv*&lt;/code&gt;模式，类似于&lt;code&gt;BackboneJS&lt;/code&gt;;但由于项目开发中不断的业务修改，导致了现行框架中有很多业务性的代码，耦合严重。&lt;/p&gt;
+
+&lt;p&gt;在这种模式下，后端对于我们来说，就是提供接口的。这里也是个非常揪心的地方。因为接口规范文档并不是特别明确，导致了经常有数据格式不对的问题。对于我们前端来说，理所应当地认为这是后端的责任，他们应该按照我们所要求的格式返回，数据格式的转换不应该是前端要做的事情。但是往往各执一词。于是现状就是哪一方弱势一点，就是哪一方去修改。&lt;/p&gt;
+
+&lt;h4 id=&quot;spa&quot;&gt;为什么选择SPA模式？&lt;/h4&gt;
+&lt;p&gt;项目基本上是web app的类型，对SEO也没有要求。更确切地说，是基于web的管理平台项目，涉及大量的交互操作。&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 05 Aug 2014 05:53:00 +0800</pubDate>
+        <link>http://heydelilah.github.io//note/2014/08/05/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB.html</link>
+        <guid isPermaLink="true">http://heydelilah.github.io//note/2014/08/05/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB.html</guid>
+        
+        
+        <category>note</category>
+        
+      </item>
+    
+      <item>
+        <title>前端单元测试</title>
+        <description>&lt;p&gt;近期被安排去调研前端Unit testing情况。从一无所知到有了个大致了解，自我总结一下。&lt;/p&gt;
+
+&lt;p&gt;经过一系列比较，选择了&lt;code&gt;Mocha&lt;/code&gt;测试框架，&lt;code&gt;chai&lt;/code&gt;和&lt;code&gt;sinon&lt;/code&gt;作为附加库；&lt;/p&gt;
+
+&lt;p&gt;前端单元测试可分浏览器端和服务端。部署是比较简单的，浏览器端基本上就是一个html引入各种所需测试框架文件与测试用例，然后执行&lt;code&gt;mocha.run&lt;/code&gt;即可；服务端也是全局&lt;code&gt;npm install mocha&lt;/code&gt;后，直接在bash端执行mocha命令即可。&lt;/p&gt;
+
+&lt;p&gt;不过一开始由于我并没有意识到有Browser和Server之分，而使用server那一套的部署方式捣鼓了很久，绕了很多圈子。Server端是没有document,windows等BOM对象的，所以根本是无法直接跑（后来发现了&lt;code&gt;jsdom&lt;/code&gt;等，可在服务端模拟DOM，不过这是后话了），这是报错的原因，而我一直认为纠结于如何把浏览器端的seajs改为node端的seajs上。&lt;/p&gt;
+
+&lt;p&gt;Unit testing是好东西，它能解决我们此刻面临的重大问题：开发效率。这半年来，深刻体会到平日工作内容最多最烦心的不是逻辑开发，而是debug.需求每天都在新增，项目在臃肿，经手的程序员也越来越多；一处无关痛痒的改动，往往会牵动另一处的代码，于是就陷入了无穷无尽的debug深渊中。
+当然，添加Unit test不是绝对的解决之法，最大限度的减少不必要的bug要各方面都一起加强：比如项目规范，逻辑开发时候考虑扩展性等等。&lt;/p&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;如何写测试用例？&lt;/h4&gt;
+
+&lt;p&gt;当明确了要添加Unit test后，就剩下测试用例要怎么写的问题了。理论上说这应该不是一个问题，但事实上这是最大的问题。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;测交互；-各种操作的组合情况 -需要模拟每种情况，而组合很多&lt;/li&gt;
+  &lt;li&gt;测DOM；-界面构建是否到达预期；-使用jq获取界面已创建好的元素，一一对比，十分繁琐；&lt;/li&gt;
+  &lt;li&gt;测数据；-相对好测一点。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;所以如果真的使用TDD（测试驱动）的模式去开发，虽然维护效率会大大提升，但开发时间恐怕会增加一倍以上呢。或许不必要追求测试覆盖率100%，择取一些重点部分写测试用例吧？另外，写测试用例的过程也是强迫自己解耦模块的过程，因为太耦合的代码写起测试用例来只会吐血。&lt;/p&gt;
+
+&lt;h4 id=&quot;todo&quot;&gt;TODO&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;自动化测试，看看是不是能与&lt;code&gt;grunt&lt;/code&gt;结合起来；&lt;/li&gt;
+  &lt;li&gt;调研一下无头测试- &lt;code&gt;phantomjs&lt;/code&gt; ；&lt;/li&gt;
+  &lt;li&gt;研究一下测试驱动器，如&lt;code&gt;karma&lt;/code&gt;等;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 04 Aug 2014 05:54:00 +0800</pubDate>
+        <link>http://heydelilah.github.io//note/2014/08/04/%E5%89%8D%E7%AB%AF%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html</link>
+        <guid isPermaLink="true">http://heydelilah.github.io//note/2014/08/04/%E5%89%8D%E7%AB%AF%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html</guid>
+        
+        
+        <category>note</category>
+        
+      </item>
+    
+      <item>
+        <title>调研- 同类JS单元测试框架</title>
+        <description>&lt;h1 id=&quot;js&quot;&gt;调研- 同类JS单元测试框架&lt;/h1&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;一，测试框架&lt;/h3&gt;
+
+&lt;h4 id=&quot;qunit&quot;&gt;Qunit&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;jquery团队, John Resig开发；简单美观，容易上手；&lt;/li&gt;
+  &lt;li&gt;不能自动化浏览器测试&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;jasmine&quot;&gt;Jasmine&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;BDD；基于Ruby.&lt;/li&gt;
+  &lt;li&gt;和JsUnit( 已没更新）是同一群人写的;&lt;/li&gt;
+  &lt;li&gt;大小：20K左右&lt;/li&gt;
+  &lt;li&gt;使用： 淘宝UED&lt;/li&gt;
+  &lt;li&gt;插件：jasmine-jQuery&lt;/li&gt;
+  &lt;li&gt;对于Ruby语言有特别的支持&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;mocha&quot;&gt;Mocha&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;TJ大神。基于nodeJS&lt;/li&gt;
+  &lt;li&gt;自由和geek；TDD,BDD可选；在bash端有特别亮点，如diff之类&lt;/li&gt;
+  &lt;li&gt;Chai  -BDD/TDD断言库&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;sinon&quot;&gt;Sinon&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;由《Test-Driven JavaScript Development》一书的作者Christian Johansen开发。&lt;/li&gt;
+  &lt;li&gt;为Javascript提供独立的spies，stubs和mocks。&lt;/li&gt;
+  &lt;li&gt;更多的是作为一个辅助的测试工具集，可以跟Jasmine、Mocha、QUnit等任意测试框架结合使用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;二，测试工具&lt;/h3&gt;
+
+&lt;p&gt;不是JS测试框架，而是一个测试框架的驱动器（测试执行过程管理工具）测试所有主流 Web 浏览器， 自动化完成单元测试&lt;/p&gt;
+
+&lt;h4 id=&quot;jstestdriver&quot;&gt;JSTestDriver（不更新）&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;来自Google，基于JAVA编写。TDD。&lt;/li&gt;
+  &lt;li&gt;安装使用稍微有点麻烦，依赖于JAVA环境。&lt;/li&gt;
+  &lt;li&gt;“通过使用功能强大的 JSTestDriver (JSTD) 工具，您能够在多个浏览器中从命令行运行 JavaScript。JSTD 带有一个 JAR 文件，它可以让您启动服务器、捕获一或多个浏览器并在这些浏览器中运行测试。”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;karmatestacular&quot;&gt;Karma(Testacular)&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;来自 Google AngularJs团队，基于nodeJS，使用了socketio。类似JSTD&lt;/li&gt;
+  &lt;li&gt;支持自动化测试；支持多个Javascript测试框架；支持同时多浏览器，多终端测试&lt;/li&gt;
+  &lt;li&gt;支持PhantomJS无界面浏览器&lt;/li&gt;
+  &lt;li&gt;不支持nodejs测试&lt;/li&gt;
+  &lt;li&gt;不支持历史结果查询&lt;/li&gt;
+  &lt;li&gt;webstorm对它有特别支持&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;busterjs&quot;&gt;busterjs&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;作者之一就是Christian Johansen； 基于nodeJS；&lt;/li&gt;
+  &lt;li&gt;支持自动化测试；支持多个Javascript测试框架；支持同时多浏览器，多终端测试&lt;/li&gt;
+  &lt;li&gt;内建SinonJS&lt;/li&gt;
+  &lt;li&gt;支持nodejs测试&lt;/li&gt;
+  &lt;li&gt;可以在普通浏览器或无界面浏览器PhantomJS(soon)中运行&lt;/li&gt;
+  &lt;li&gt;不支持历史结果查询&lt;/li&gt;
+  &lt;li&gt;挺受瞩目的，但目前仍是beta版本，即可能会有bug。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;testem&quot;&gt;Testem&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;基于nodejs,使用express和socketio; 2012年6月发布&lt;/li&gt;
+  &lt;li&gt;大概和karma差不多吧，没仔细看。Jeffrey Way和Stephen Thomas都推荐过它。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;testswarm&quot;&gt;TestSwarm&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;John Resig创建的分布式Javascript测试工具；&lt;/li&gt;
+  &lt;li&gt;开源；所有测试环境由服务器提供&lt;/li&gt;
+  &lt;li&gt;支持历史结果查询&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;yui-yeti&quot;&gt;YUI Yeti&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Yahoo团队，基于nodejs&lt;/li&gt;
+  &lt;li&gt;支持多种浏览器；可通过命令行运行。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ci&quot;&gt;三，CI&lt;/h3&gt;
+
+&lt;p&gt;持续集成就是通常所谓的CI(Continuous integration)，持续不断的自动化测试新加入代码后的项目。它并不属于单元测试，而是另外的范畴，不过通过使用CI服务可以很容易的在Github上测试项目，而这也就是持续集成的意义。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Jenkins&lt;/li&gt;
+  &lt;li&gt;Travis-CI&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 24 Jun 2014 05:50:00 +0800</pubDate>
+        <link>http://heydelilah.github.io//note/2014/06/24/%E8%B0%83%E7%A0%94-%20%E5%90%8C%E7%B1%BBJS%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html</link>
+        <guid isPermaLink="true">http://heydelilah.github.io//note/2014/06/24/%E8%B0%83%E7%A0%94-%20%E5%90%8C%E7%B1%BBJS%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html</guid>
+        
+        
+        <category>note</category>
+        
+      </item>
+    
+      <item>
+        <title>防止MySql中SQL注入 -PHP</title>
+        <description>&lt;h1 id=&quot;mysqlsql--php&quot;&gt;防止MySql中SQL注入 -PHP&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;利用 &lt;code&gt;mysql_escape_string()&lt;/code&gt; 和 &lt;code&gt;mysql_real_escape_string()&lt;/code&gt; 来转义数据库特定的敏感字符;或者利用 &lt;code&gt;addslashes()&lt;/code&gt; 和 &lt;code&gt;str_replace()&lt;/code&gt; 手动写一个转义的函数&lt;/li&gt;
+  &lt;li&gt;PHP自带功能 &lt;code&gt;magic_quotes_gpc&lt;/code&gt; ：使用&lt;code&gt;get_magic_quotes_gpc()&lt;/code&gt;来判断此功能是否已启用;若启用，输入的字符串中的单引号，双引号和其它一些字符前将会被自动加上反斜杠\&lt;/li&gt;
+  &lt;li&gt;PDO,Mysqli的预处理，prepare&amp;amp;bind-尚未仔细了解&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;section&quot;&gt;一些好的习惯：&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;对于已知类型，强制类型转换 &lt;code&gt;$id = intval ($_GET[&#39;id&#39;]);&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;查询语句中的变量加上引号&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;section-1&quot;&gt;引用链接：&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.php.net/manual/zh/security.database.sql-injection.php&quot;&gt;php手册-SQL注入&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 18 Feb 2014 08:01:00 +0800</pubDate>
+        <link>http://heydelilah.github.io//note/2014/02/18/SQL%E6%B3%A8%E5%85%A5.html</link>
+        <guid isPermaLink="true">http://heydelilah.github.io//note/2014/02/18/SQL%E6%B3%A8%E5%85%A5.html</guid>
+        
+        <category>Note</category>
+        
+        
+        <category>note</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code&gt;-w&lt;/code&gt; switch) to see your changes!
+To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 18 Feb 2014 01:39:00 +0800</pubDate>
+        <link>http://heydelilah.github.io//jekyll/update/2014/02/18/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://heydelilah.github.io//jekyll/update/2014/02/18/welcome-to-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+  </channel>
+</rss>

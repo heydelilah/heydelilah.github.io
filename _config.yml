@@ -4,7 +4,7 @@ email: chongjs@163.com
 description: > # this means to ignore newlines until "baseurl:"
   Delilah(小虫)的个人博客
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://heydelilah.github.io/" # the base hostname & protocol for your site
 github_username:  heydelilah
 
 # Build settings
