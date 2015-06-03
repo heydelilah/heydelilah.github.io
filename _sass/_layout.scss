@@ -186,13 +186,18 @@
     list-style: none;
 
     > li {
-        margin-bottom: $spacing-unit;
+        // margin-bottom: $spacing-unit;
     }
 }
 
 .post-meta {
     font-size: $small-font-size;
-    color: $grey-color;
+    // color: $grey-color;
+}
+
+.post-tag{
+    color: $brand-color;
+    font-size: $small-font-size;
 }
 
 .post-link {
@@ -247,6 +252,33 @@
         }
     }
 }
+.post-li{
+    height: 50px;
+    margin-bottom: 10px;
+    overflow: hidden;
+
+    &:hover {
+        color: $brand-color-dark;
+        a{
+            color: $brand-color-dark;
+        }
+    }
+
+}
+
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.container{
+    clear: both;
+}
+.text-right{
+    text-align: right;
+}
+
 
 // resume
 .resume {
@@ -308,12 +340,6 @@
     }
     .box{
         margin-top: 30px;
-        .fl{
-            float: left;
-        }
-        .fr{
-            float: right;
-        }
         .header{
             overflow: hidden;
             margin-bottom: 10px;

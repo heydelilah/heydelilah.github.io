@@ -6,8 +6,8 @@
 </description>
     <link>http://heydelilah.github.io//</link>
     <atom:link href="http://heydelilah.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 03 Jun 2015 12:16:12 +0800</pubDate>
-    <lastBuildDate>Wed, 03 Jun 2015 12:16:12 +0800</lastBuildDate>
+    <pubDate>Wed, 03 Jun 2015 17:31:49 +0800</pubDate>
+    <lastBuildDate>Wed, 03 Jun 2015 17:31:49 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -134,6 +134,8 @@
         <link>http://heydelilah.github.io//js/2014/10/15/%E8%B7%A8%E5%9F%9F.html</link>
         <guid isPermaLink="true">http://heydelilah.github.io//js/2014/10/15/%E8%B7%A8%E5%9F%9F.html</guid>
         
+        <category>学习总结</category>
+        
         
         <category>js</category>
         
@@ -175,6 +177,8 @@ return position; } ```
         <link>http://heydelilah.github.io//js/2014/09/09/%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D.html</link>
         <guid isPermaLink="true">http://heydelilah.github.io//js/2014/09/09/%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D.html</guid>
         
+        <category>学习总结</category>
+        
         
         <category>js</category>
         
@@ -197,6 +201,8 @@ return position; } ```
         <pubDate>Tue, 05 Aug 2014 05:53:00 +0800</pubDate>
         <link>http://heydelilah.github.io//note/2014/08/05/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB.html</link>
         <guid isPermaLink="true">http://heydelilah.github.io//note/2014/08/05/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB.html</guid>
+        
+        <category>体会</category>
         
         
         <category>note</category>
@@ -239,6 +245,8 @@ return position; } ```
         <pubDate>Mon, 04 Aug 2014 05:54:00 +0800</pubDate>
         <link>http://heydelilah.github.io//note/2014/08/04/%E5%89%8D%E7%AB%AF%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html</link>
         <guid isPermaLink="true">http://heydelilah.github.io//note/2014/08/04/%E5%89%8D%E7%AB%AF%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html</guid>
+        
+        <category>体会</category>
         
         
         <category>note</category>
@@ -345,6 +353,8 @@ return position; } ```
         <link>http://heydelilah.github.io//note/2014/06/24/%E8%B0%83%E7%A0%94-%20%E5%90%8C%E7%B1%BBJS%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html</link>
         <guid isPermaLink="true">http://heydelilah.github.io//note/2014/06/24/%E8%B0%83%E7%A0%94-%20%E5%90%8C%E7%B1%BBJS%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6.html</guid>
         
+        <category>总结</category>
+        
         
         <category>note</category>
         
@@ -373,7 +383,7 @@ return position; } ```
         <link>http://heydelilah.github.io//note/2014/02/18/SQL%E6%B3%A8%E5%85%A5.html</link>
         <guid isPermaLink="true">http://heydelilah.github.io//note/2014/02/18/SQL%E6%B3%A8%E5%85%A5.html</guid>
         
-        <category>Note</category>
+        <category>笔记</category>
         
         
         <category>note</category>
@@ -399,6 +409,8 @@ To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; direc
         <pubDate>Tue, 18 Feb 2014 01:39:00 +0800</pubDate>
         <link>http://heydelilah.github.io//jekyll/update/2014/02/18/welcome-to-jekyll.html</link>
         <guid isPermaLink="true">http://heydelilah.github.io//jekyll/update/2014/02/18/welcome-to-jekyll.html</guid>
+        
+        <category>无</category>
         
         
         <category>jekyll</category>

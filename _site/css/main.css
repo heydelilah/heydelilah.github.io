@@ -70,8 +70,7 @@ a {
     color: #343838;
     color: #c0c5c4; }
   a:hover {
-    color: #21779b;
-    text-decoration: underline; }
+    color: #21779b; }
 
 /**
  * Blockquotes
@@ -275,12 +274,13 @@ pre {
 .post-list {
   margin-left: 0;
   list-style: none; }
-  .post-list > li {
-    margin-bottom: 30px; }
 
 .post-meta {
-  font-size: 14px;
-  color: #59605f; }
+  font-size: 14px; }
+
+.post-tag {
+  color: #5FB7DD;
+  font-size: 14px; }
 
 .post-link {
   display: block;
@@ -317,6 +317,27 @@ pre {
     @media screen and (max-width: 800px) {
       .post-content h4 {
         font-size: 18px; } }
+
+.post-li {
+  height: 50px;
+  margin-bottom: 10px;
+  overflow: hidden; }
+  .post-li:hover {
+    color: #21779b; }
+    .post-li:hover a {
+      color: #21779b; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.container {
+  clear: both; }
+
+.text-right {
+  text-align: right; }
 
 .resume .post-title {
   text-align: center; }
@@ -359,10 +380,6 @@ pre {
     text-align: right; }
 .resume .box {
   margin-top: 30px; }
-  .resume .box .fl {
-    float: left; }
-  .resume .box .fr {
-    float: right; }
   .resume .box .header {
     overflow: hidden;
     margin-bottom: 10px; }

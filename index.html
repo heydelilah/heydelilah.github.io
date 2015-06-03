@@ -8,12 +8,21 @@ layout: default
 
   <ul class="post-list">
     {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <li class="container post-li">
+        <div class="fl">
+          <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h2>          
+        </div>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
+        <div class="fr text-right">
+          <div class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
+          <span class="post-tag">
+            <i class="fa fa-tag"></i> {{ post.tag }}</span>
+          
+        </div>
+
+
       </li>
     {% endfor %}
   </ul>
