@@ -9,3 +9,5 @@ github_username:  heydelilah
 
 # Build settings
 markdown: kramdown
+
+paginate: 5

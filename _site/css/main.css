@@ -68,7 +68,7 @@ a {
   text-decoration: none; }
   a:visited {
     color: #343838;
-    color: #c0c5c4; }
+    color: #1c1e1e; }
   a:hover {
     color: #21779b; }
 
@@ -213,11 +213,22 @@ pre {
  * Site footer
  */
 .site-footer {
-  border-top: 1px solid #c0c5c4;
-  padding: 30px 0; }
+  padding: 30px 0;
+  background-color: #21779b;
+  color: #eee; }
+  .site-footer a {
+    color: #5FB7DD;
+    text-decoration: none; }
+    .site-footer a:visited {
+      color: #5FB7DD; }
+    .site-footer a:hover {
+      color: #ddd;
+      cursor: pointer;
+      text-decoration: underline; }
+  .site-footer i {
+    color: #eee; }
 
 .footer-heading {
-  color: #5FB7DD;
   font-size: 18px;
   margin-bottom: 15px; }
 
@@ -274,11 +285,14 @@ pre {
 .post-list {
   margin-left: 0;
   list-style: none; }
+  .post-list > li {
+    border-bottom: solid 1px #c0c5c4;
+    margin-bottom: 30px;
+    padding-bottom: 30px; }
 
-.post-meta {
-  font-size: 14px; }
-
-.post-tag {
+.post-meta span {
+  font-size: 14px;
+  margin-right: 10px;
   color: #5FB7DD;
   font-size: 14px; }
 
@@ -318,14 +332,36 @@ pre {
       .post-content h4 {
         font-size: 18px; } }
 
-.post-li {
-  height: 50px;
+.post-container {
+  clear: both;
   margin-bottom: 10px;
+  margin-top: 10px;
   overflow: hidden; }
-  .post-li:hover {
+
+.post-thumbnail {
+  max-height: 130px;
+  margin-right: 20px;
+  background-color: #eee; }
+  .post-thumbnail img {
+    width: 190px;
+    min-height: 120px; }
+
+.post-desc {
+  max-width: 500px;
+  height: 120px; }
+  .post-desc-text {
+    margin-bottom: 0;
+    height: 100px;
+    font-size: 14px; }
+
+.post-readmore {
+  font-size: 14px;
+  color: #5FB7DD; }
+  .post-readmore:hover {
+    color: #21779b;
+    text-decoration: underline; }
+  .post-readmore:visited {
     color: #21779b; }
-    .post-li:hover a {
-      color: #21779b; }
 
 .fl {
   float: left; }
@@ -387,6 +423,28 @@ pre {
       color: #999; }
     .resume .box .header .date {
       color: #999; }
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 0; }
+  .pagination li {
+    display: inline; }
+    .pagination li a, .pagination li span {
+      position: relative;
+      float: left;
+      padding: 6px 12px;
+      margin-left: -1px;
+      line-height: 1.42857143;
+      color: #1c1e1e;
+      text-decoration: none; }
+    .pagination li .act {
+      color: #21779b; }
+    .pagination li a {
+      cursor: pointer;
+      color: #21779b; }
+      .pagination li a:hover {
+        text-decoration: underline; }
 
 /**
  * Syntax highlighting styles

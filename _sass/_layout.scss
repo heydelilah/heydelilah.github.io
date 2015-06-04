@@ -103,12 +103,32 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    // border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
+    background-color: $brand-color-dark;
+    color: #eee;
+    a{
+        color: $brand-color;
+        text-decoration: none;
+
+        &:visited {
+            color: $brand-color;
+        }
+
+        &:hover {
+            color: #ddd;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+    i{
+        color: #eee;
+    }
+
 }
 
 .footer-heading {
-    color: $brand-color;
+    // color: $brand-color;
     font-size: 18px;
     margin-bottom: $spacing-unit / 2;
 }
@@ -184,20 +204,23 @@
 .post-list {
     margin-left: 0;
     list-style: none;
-
-    > li {
-        // margin-bottom: $spacing-unit;
+    >li{
+        border-bottom: solid 1px $grey-color-light;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
     }
 }
 
 .post-meta {
-    font-size: $small-font-size;
-    // color: $grey-color;
+    span{
+        font-size: $small-font-size;
+        margin-right: 10px;
+        color: $brand-color;
+        font-size: $small-font-size;
+    }
 }
 
 .post-tag{
-    color: $brand-color;
-    font-size: $small-font-size;
 }
 
 .post-link {
@@ -215,7 +238,6 @@
 }
 
 .post-title {
-    // color: $brand-color;
     font-size: 42px;
     letter-spacing: -1px;
     line-height: 1;
@@ -252,18 +274,42 @@
         }
     }
 }
-.post-li{
-    height: 50px;
+.post-container{
+    clear: both;
     margin-bottom: 10px;
+    margin-top: 10px;
     overflow: hidden;
-
-    &:hover {
-        color: $brand-color-dark;
-        a{
-            color: $brand-color-dark;
-        }
+}
+.post-thumbnail{
+    max-height: 130px;
+    margin-right: 20px;
+    background-color: #eee;
+    img{
+        width: 190px;
+        min-height: 120px;  
     }
+}
+.post-desc{
+    max-width: 500px;
+    height: 120px;
+    &-text{
+        margin-bottom: 0;
+        height: 100px;
+        font-size: $small-font-size;   
+    }
+}
+.post-readmore{
+    font-size: $small-font-size;
+    color: $brand-color;
 
+    &:hover{
+        color: $brand-color-dark;
+        text-decoration: underline;
+    }
+    
+    &:visited{
+        color: $brand-color-dark;
+    }
 }
 
 .fl{
@@ -361,3 +407,34 @@
     }
 
 }
+
+// 分页器
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin:0;
+    li{
+        display: inline;  
+        a, span{
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: $grey-color-dark;
+            text-decoration: none; 
+        }
+        .act{
+          color: $brand-color-dark;
+  
+        }
+        a{
+            cursor: pointer;
+            color: $brand-color-dark;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+

@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>前后端分离</title>
-  <meta name="description" content="时至今日，我才对“前后端分离”有了真正的理解。在一年的工作中，虽然一直是处于这个模式之下，但从没深究过。并不清楚为何每次开发都要先开启一个nodeJS服务器。前后端分离开发，就是在开发过程中，前端的所有资源文件都不依赖于后端服务器，后端只是负责数据层面的逻辑。以目前我负责的这个项目来说，整个项目是一个SPA（si...">
+  <title>用angular和express完成一个通讯录demo</title>
+  <meta name="description" content="什么是dsp?">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://heydelilah.github.io//note/2014/08/05/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB.html">
+  <link rel="canonical" href="http://heydelilah.github.io//note/2015/05/06/angular%E9%80%9A%E8%AE%AF%E5%BD%95.html">
   <link rel="alternate" type="application/rss+xml" title="HeyDelilah" href="http://heydelilah.github.io//feed.xml" />
   <link rel="stylesheet" href="http://heydelilah.github.io/fontawesome4.3.0/css/font-awesome.min.css">
   <script>
@@ -70,22 +70,27 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">前后端分离</h1>
-    <p class="post-meta">Aug 5, 2014 • 体会 </p>
+    <h1 class="post-title">用angular和express完成一个通讯录demo</h1>
+    <p class="post-meta">May 6, 2015 • 自我总结 </p>
   </header>
 
   <article class="post-content">
-    <p>时至今日，我才对“前后端分离”有了真正的理解。在一年的工作中，虽然一直是处于这个模式之下，但从没深究过。并不清楚为何每次开发都要先开启一个<code>nodeJS</code>服务器。</p>
+    <h1 id="dsp">什么是dsp?</h1>
 
-<p>前后端分离开发，就是在开发过程中，前端的所有资源文件都不依赖于后端服务器，后端只是负责数据层面的逻辑。</p>
+<ol>
+  <li>利用 <code>mysql_escape_string()</code> 和 <code>mysql_real_escape_string()</code> 来转义数据库特定的敏感字符;或者利用 <code>addslashes()</code> 和 <code>str_replace()</code> 手动写一个转义的函数</li>
+  <li>PHP自带功能 <code>magic_quotes_gpc</code> ：使用<code>get_magic_quotes_gpc()</code>来判断此功能是否已启用;若启用，输入的字符串中的单引号，双引号和其它一些字符前将会被自动加上反斜杠\</li>
+  <li>PDO,Mysqli的预处理，prepare&amp;bind-尚未仔细了解</li>
+</ol>
 
-<p>以目前我负责的这个项目来说，整个项目是一个SPA（single-page-application）；模块化开发，以<code>seajs</code>作为模块加载器；按需加载，加载过的文件缓存在浏览器中。页面的切换通过css的<code>display:show/hide</code>属性，不同页面的url通过不同的hash值来区分，前端可独立去设计url；获取数据通过Ajax方式向后端异步获取；前端框架是一个<code>mv*</code>模式，类似于<code>BackboneJS</code>;但由于项目开发中不断的业务修改，导致了现行框架中有很多业务性的代码，耦合严重。</p>
+<h1 id="ssp">什么是ssp?</h1>
+<ul>
+  <li>对于已知类型，强制类型转换 <code>$id = intval ($_GET['id']);</code></li>
+  <li>查询语句中的变量加上引号</li>
+</ul>
 
-<p>在这种模式下，后端对于我们来说，就是提供接口的。这里也是个非常揪心的地方。因为接口规范文档并不是特别明确，导致了经常有数据格式不对的问题。对于我们前端来说，理所应当地认为这是后端的责任，他们应该按照我们所要求的格式返回，数据格式的转换不应该是前端要做的事情。但是往往各执一词。于是现状就是哪一方弱势一点，就是哪一方去修改。</p>
-
-<h4 id="spa">为什么选择SPA模式？</h4>
-<p>项目基本上是web app的类型，对SEO也没有要求。更确切地说，是基于web的管理平台项目，涉及大量的交互操作。</p>
-
+<h1 id="section">相关资源：</h1>
+<p><a href="http://www.php.net/manual/zh/security.database.sql-injection.php">php手册-SQL注入</a></p>
 
   </article>
 
