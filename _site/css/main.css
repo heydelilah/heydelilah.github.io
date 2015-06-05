@@ -290,8 +290,10 @@ pre {
     margin-bottom: 30px;
     padding-bottom: 30px; }
 
+.post-meta i {
+  color: #5FB7DD;
+  font-size: 14px; }
 .post-meta span {
-  font-size: 14px;
   margin-right: 10px;
   color: #5FB7DD;
   font-size: 14px; }

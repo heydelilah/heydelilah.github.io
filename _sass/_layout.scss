@@ -212,8 +212,11 @@
 }
 
 .post-meta {
-    span{
+    i {
+        color: $brand-color;
         font-size: $small-font-size;
+    }
+    span{
         margin-right: 10px;
         color: $brand-color;
         font-size: $small-font-size;

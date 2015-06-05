@@ -19,7 +19,7 @@ layout: default
         </div>
         <div class="post-container">
           <div class="fl post-thumbnail">
-            <img src="{{post.img}}" alt="{{post.title}}">
+            <img src="{{site.url}}{{post.imgUrl}}" alt="{{post.title}}">
           </div>
           <div class="fl post-desc">
             <p class="post-desc-text">{{post.desc}}</p>
@@ -32,10 +32,7 @@ layout: default
   </ul>
 
   <div class="container">  
-    <p class="rss-subscribe fl">
-      <i class="fa fa-rss"></i>  
-      <a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a>
-    </p>
+
 
     <ul class="pagination fr">
       <li>

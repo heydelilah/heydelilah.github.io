@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>用angular和express完成一个通讯录demo</title>
-  <meta name="description" content="什么是dsp?">
+  <title>使用Angular实现一个Web-app通讯录</title>
+  <meta name="description" content="使用Angular和Nodejs实现一个简易的Web App通讯录，支持增删改查、搜索、设置显示列、以及用户权限控制(signup,login,logout)。">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://heydelilah.github.io//note/2015/05/06/angular%E9%80%9A%E8%AE%AF%E5%BD%95.html">
@@ -70,27 +70,144 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">用angular和express完成一个通讯录demo</h1>
-    <p class="post-meta">May 6, 2015 • 自我总结 </p>
+    <h1 class="post-title">使用Angular实现一个Web-app通讯录</h1>
+    <p class="post-meta">
+    	<!-- <i class="fa fa-clock-o"></i>  -->
+    	<span>May 6, 2015</span>
+    	
+    	
+
+    	
+    	
+    	 
+    		<i class="fa fa-tag"></i> 
+    		<span>总结</span>
+    	 
+    </p>
   </header>
 
   <article class="post-content">
-    <h1 id="dsp">什么是dsp?</h1>
+    <p>使用Angular和Nodejs实现一个简易的Web App通讯录，支持增删改查、搜索、设置显示列、以及用户权限控制(signup,login,logout)。</p>
 
-<ol>
-  <li>利用 <code>mysql_escape_string()</code> 和 <code>mysql_real_escape_string()</code> 来转义数据库特定的敏感字符;或者利用 <code>addslashes()</code> 和 <code>str_replace()</code> 手动写一个转义的函数</li>
-  <li>PHP自带功能 <code>magic_quotes_gpc</code> ：使用<code>get_magic_quotes_gpc()</code>来判断此功能是否已启用;若启用，输入的字符串中的单引号，双引号和其它一些字符前将会被自动加上反斜杠\</li>
-  <li>PDO,Mysqli的预处理，prepare&amp;bind-尚未仔细了解</li>
-</ol>
+<p><img src="http://heydelilah.github.io/data/post_thumb/angular-contacts-edit.png" alt="contats" /></p>
 
-<h1 id="ssp">什么是ssp?</h1>
+<h1 id="section">涉及</h1>
+
 <ul>
-  <li>对于已知类型，强制类型转换 <code>$id = intval ($_GET['id']);</code></li>
-  <li>查询语句中的变量加上引号</li>
+  <li>Angular
+    <ul>
+      <li>ngResource
+        <ul>
+          <li>提供了与符合RESTful架构的服务端数据资源交互。</li>
+          <li><code>$resource</code></li>
+        </ul>
+      </li>
+      <li>ngRouter
+        <ul>
+          <li>提供路由服务；</li>
+          <li>$route 监控 <code>$location.url()</code>变化，匹配相应定义好了的路径；</li>
+          <li>使用<code>$routeProvider</code>提供的api去定义路由。</li>
+        </ul>
+      </li>
+      <li>ngMessages
+        <ul>
+          <li>为在模版中展示/隐藏消息提供增强服务</li>
+          <li>以<code>ngModel</code> 提供的<code>$error</code>对象作为判断依据</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Nodejs (express)
+    <ul>
+      <li>body-parse</li>
+      <li>express-session</li>
+    </ul>
+  </li>
+  <li>Bourne -模拟数据库</li>
+  <li>bootstrap</li>
+  <li>jquery</li>
+  <li>其他：
+    <ul>
+      <li>nodemon</li>
+    </ul>
+  </li>
 </ul>
 
-<h1 id="section">相关资源：</h1>
-<p><a href="http://www.php.net/manual/zh/security.database.sql-injection.php">php手册-SQL注入</a></p>
+<h1 id="section-1">路由设计</h1>
+
+<ul>
+  <li><code>/contacts</code> -首页／通讯录列表页</li>
+  <li><code>/contacts:id</code> -单条信息</li>
+  <li><code>/contacts/add</code> -新增</li>
+  <li><code>/login</code> -登录与注册页</li>
+  <li><code>/setting</code> -设置页</li>
+</ul>
+
+<h1 id="api-">API 设计</h1>
+
+<ol>
+  <li>通讯录增删改查
+    <ul>
+      <li><code>/api/contacts</code>
+        <ul>
+          <li>POST</li>
+          <li>GET</li>
+        </ul>
+      </li>
+      <li><code>/api/contacts:id</code>
+        <ul>
+          <li>GET</li>
+          <li>PUT</li>
+          <li>DELETE</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>设置
+    <ul>
+      <li><code>/option/display_field</code>
+        <ul>
+          <li>GET</li>
+          <li>POST</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>用户操作
+    <ul>
+      <li><code>/login</code>
+        <ul>
+          <li>GET</li>
+          <li>POST</li>
+        </ul>
+      </li>
+      <li><code>/signup</code>
+        <ul>
+          <li>POST</li>
+        </ul>
+      </li>
+      <li><code>/logout</code>
+        <ul>
+          <li>GET</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="angular-">Angular 核心</h1>
+
+<ol>
+  <li>controller</li>
+  <li>divective</li>
+  <li>factory</li>
+  <li>filter</li>
+</ol>
+
+<h1 id="section-2">资源</h1>
+
+<p>参考教程来源于: <a href="https://code.tutsplus.com/courses/building-a-web-app-from-scratch-with-angularjs">https://code.tutsplus.com/courses/building-a-web-app-from-scratch-with-angularjs</a></p>
+
 
   </article>
 
@@ -135,6 +252,10 @@
       <div class="footer-col  footer-col-3">
         <!-- <p class="text">Delilah(小虫)的个人博客
 </p> -->
+          <p class="rss-subscribe fl">
+            <i class="fa fa-rss"></i>  
+            <a href="/feed.xml">Subscribe via RSS</a>
+          </p>
       </div>
     </div>
 

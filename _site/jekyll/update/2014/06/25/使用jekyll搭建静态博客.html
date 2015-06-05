@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>防止MySql中SQL注入 -PHP</title>
-  <meta name="description" content="防止MySql中SQL注入 -PHP">
+  <title>使用Jekyll搭建静态博客</title>
+  <meta name="description" content="使用jekyll在github主页上搭建一个静态博客，支持markdown，支持分页，并加入 Google analytics 代码追踪博客被浏览情况。">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://heydelilah.github.io//note/2014/02/18/SQL%E6%B3%A8%E5%85%A5.html">
+  <link rel="canonical" href="http://heydelilah.github.io//jekyll/update/2014/06/25/%E4%BD%BF%E7%94%A8jekyll%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2.html">
   <link rel="alternate" type="application/rss+xml" title="HeyDelilah" href="http://heydelilah.github.io//feed.xml" />
   <link rel="stylesheet" href="http://heydelilah.github.io/fontawesome4.3.0/css/font-awesome.min.css">
   <script>
@@ -70,10 +70,10 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">防止MySql中SQL注入 -PHP</h1>
+    <h1 class="post-title">使用Jekyll搭建静态博客</h1>
     <p class="post-meta">
     	<!-- <i class="fa fa-clock-o"></i>  -->
-    	<span>Feb 18, 2014</span>
+    	<span>Jun 25, 2014</span>
     	
     	
 
@@ -81,28 +81,98 @@
     	
     	 
     		<i class="fa fa-tag"></i> 
-    		<span>笔记</span>
+    		<span>总结</span>
     	 
     </p>
   </header>
 
   <article class="post-content">
-    <h1 id="mysqlsql--php">防止MySql中SQL注入 -PHP</h1>
+    <p>使用jekyll在github主页上搭建一个静态博客，支持markdown，支持分页，并加入 Google analytics 代码追踪博客被浏览情况。</p>
 
-<ol>
-  <li>利用 <code>mysql_escape_string()</code> 和 <code>mysql_real_escape_string()</code> 来转义数据库特定的敏感字符;或者利用 <code>addslashes()</code> 和 <code>str_replace()</code> 手动写一个转义的函数</li>
-  <li>PHP自带功能 <code>magic_quotes_gpc</code> ：使用<code>get_magic_quotes_gpc()</code>来判断此功能是否已启用;若启用，输入的字符串中的单引号，双引号和其它一些字符前将会被自动加上反斜杠\</li>
-  <li>PDO,Mysqli的预处理，prepare&amp;bind-尚未仔细了解</li>
-</ol>
+<h1 id="section">所需环境</h1>
 
-<h1 id="section">一些好的习惯：</h1>
 <ul>
-  <li>对于已知类型，强制类型转换 <code>$id = intval ($_GET['id']);</code></li>
-  <li>查询语句中的变量加上引号</li>
+  <li>Ruby, gem</li>
+  <li><code>gem install jekyll</code></li>
 </ul>
 
-<h1 id="section-1">引用链接：</h1>
-<p><a href="http://www.php.net/manual/zh/security.database.sql-injection.php">php手册-SQL注入</a></p>
+<h1 id="section-1">操作命令</h1>
+
+<ul>
+  <li>生成目录结构： <code>jekyll new project_name</code></li>
+  <li>构建并启动本地服务： <code>jekyll serve</code> －当文件更新时，会自动重新生成目录</li>
+</ul>
+
+<h1 id="section-2">新增文章</h1>
+
+<p>把文件添加进<code>_posts</code> 文件夹中，命名规范为：<code>YYYY-MM-DD-name-of-post.ext</code></p>
+
+<h1 id="section-3">调整样式</h1>
+
+<ul>
+  <li><a href="http://sass-lang.com/">SASS</a></li>
+  <li><a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">liquid template</a></li>
+</ul>
+
+<h1 id="section-4">添加分页器</h1>
+
+<ul>
+  <li>在<code> _config.yml</code>文件中加入单页要展示的文章数量，如<code>paginate: 5</code>, 便可激活jekyll内置分页器;</li>
+  <li>所有相关参数都在<code>paginator</code>变量中；</li>
+</ul>
+
+<h1 id="section-5">加入图标，使博客更生动</h1>
+
+<p><a href="http://fortawesome.github.io/Font-Awesome/">font-awesome 4.3.0</a></p>
+
+<h1 id="google-analytics">加入Google analytics，了解博客被访问情况</h1>
+
+<ul>
+  <li>在<a href="https://www.google.com/analytics/">GA官网</a>注册;</li>
+  <li>获取一段监控代码；</li>
+  <li>在<code>head.html</code> 加入监控代码</li>
+</ul>
+
+<h1 id="github">上传到 github</h1>
+<p>github page 有分两种，两种实现上略微不同。作为主博客，使用第一种即可：</p>
+
+<ul>
+  <li>个人网页
+    <ul>
+      <li>仅能有一个，库命名要与github用户名保持一致，上传代码至<code>master</code>分支上。</li>
+    </ul>
+  </li>
+  <li>项目网页
+    <ul>
+      <li>每个项目都可拥有项目网页，上传代码至<code>gh-pages</code>分支；</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="section-6">一些技巧</h1>
+<ul>
+  <li>使用<code>site.url</code>写图片地址</li>
+</ul>
+
+<h1 id="section-7">遇到的困难</h1>
+
+<p>使用jekyll是需要ruby环境的，在<code>gem install jekyll</code>时，报错提示说openssl有问题。折腾了挺久，包括更新ruby版本，安装rvm去更新openssl，尝试了各种网上找的命令，最后有效的命令是：</p>
+
+<pre><code>rvm pkg install openssl
+rvm reinstall all --force
+</code></pre>
+
+<h1 id="section-8">未解决的问题</h1>
+
+<ol>
+  <li>github page 是怎么处理的？需要build后才上传吗？</li>
+  <li>data,image等的存放目录？</li>
+</ol>
+
+<h1 id="section-9">官网</h1>
+
+<p>http://jekyllrb.com</p>
+
 
   </article>
 
