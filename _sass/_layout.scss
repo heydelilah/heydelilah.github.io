@@ -11,8 +11,8 @@
 }
 .site-header {
     border-top: 5px solid $brand-color-dark;
-    border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
+    border-bottom: 1px solid #eee;
+    min-height: 60px;
 
     // Positioning context for the mobile navigation icon
     position: relative;
@@ -124,13 +124,15 @@
     i{
         color: #eee;
     }
-
+    .talk{
+        color:#eee !important;
+    }
 }
 
 .footer-heading {
     // color: $brand-color;
     font-size: 18px;
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: $spacing-unit;
 }
 
 .contact-list,
@@ -194,6 +196,7 @@
  * Page content
  */
 .page-content {
+    background:#fff url(/data/background/bg2.jpg) repeat-y top right;
     padding: $spacing-unit 0;
 }
 
@@ -205,7 +208,7 @@
     margin-left: 0;
     list-style: none;
     >li{
-        border-bottom: solid 1px $grey-color-light;
+        border-bottom: dashed 1px $brand-color;
         margin-bottom: 30px;
         padding-bottom: 30px;
     }
@@ -408,7 +411,11 @@
             }
         }
     }
-
+}
+.resume-wrapper{
+    .page-content{
+        background-image: none;  
+    }
 }
 
 // 分页器

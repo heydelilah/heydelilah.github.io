@@ -7,10 +7,21 @@
 
     {% include header.html %}
 
+    {% if page.isResume %}
+      <div class="resume-wrapper">
+    {% endif %}
+    
     <div class="page-content">
+
+
       <div class="wrapper">
         {{ content }}
       </div>
+
+      {% if page.type == resume %}
+        </div>
+      {% endif %}
+
     </div>
 
     {% include footer.html %}
