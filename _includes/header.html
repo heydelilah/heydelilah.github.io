@@ -16,7 +16,8 @@
       <div class="trigger">
         {% for page in site.pages %}
           {% if page.title %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }} </a>
+          <a href="{{site.url}}data/download/resume.pdf" title="下载pdf"><i class="fa fa-file-pdf-o"></i></a>
           {% endif %}
         {% endfor %}
       </div>

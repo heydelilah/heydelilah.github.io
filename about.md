@@ -1,6 +1,6 @@
 ---
 layout: resume
-title: 简历
+title: 个人简历
 permalink: /about/
 ---
 
