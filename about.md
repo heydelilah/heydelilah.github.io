@@ -2,6 +2,7 @@
 layout: resume
 title: 个人简历
 permalink: /about/
+isResume: true
 ---
 
 
