@@ -19,12 +19,22 @@ These should not be confused with Model-View-Controller. Controllers do exist in
 
 Additionally, action creators — dispatcher helper methods — are often used to support a semantic dispatcher API. It can be useful to think of them as a fourth part of the Flux update cycle.
 
+# flux 流程
 
+![flux flow](data/framework/flux1.png)
+
+# 结构和数据流
+
+![Structure and Data Flow](data/framework/flux2.png)
 
 # 学习demo －todo
 
 https://github.com/facebook/flux/tree/master/examples/flux-todomvc/
 
+# 一些文章
+
+- 理解Flux http://www.html-js.com/article/The-use-of-Reactjs-development-web-applications-to-understand-Flux
+- http://www.infoq.com/cn/news/2014/05/facebook-mvc-flux
 
 # 其他
 
