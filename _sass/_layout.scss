@@ -223,7 +223,8 @@
  * Page content
  */
 .page-content {
-    background:#fff url(/data/background/bg2.jpg) repeat-y top right;
+    background:#fff;
+    // background:#fff url(/data/background/bg2.jpg) repeat-y top right;
     padding: $spacing-unit 0;
 }
 
@@ -461,4 +462,18 @@
         }
     }
 }
+
+@media screen and (max-width: $on-laptop){
+    .post-container{
+        .post-thumbnail{
+            margin: 0;
+            display: none;
+        }
+    }
+    .site-nav{
+        // 暂时隐藏
+        display:none;
+    }
+}
+
 
