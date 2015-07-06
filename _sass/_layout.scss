@@ -316,7 +316,8 @@
 .post-thumbnail{
     max-height: 130px;
     margin-right: 20px;
-    background-color: #fff;
+    background: #fff url("/data/placeholder.png") center;
+    background-size: cover;
     img{
         width: 190px;
         min-height: 120px;  
