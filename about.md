@@ -56,7 +56,7 @@ isResume: true
 		<div>BiddingX项目为广告主提供广告位实时竞价服务，实现广告精准投放，同时提供详细的监测数据报告。<a href="http://www.biddingx.com/" class="link" target="_blank">官网链接</a></div>
 		<ul class="skills">
 			<li>使用<i>Pubjs</i>框架进行开发，使用<i>Seajs</i>做依赖加载，使用<i>Ajax</i>与服务端通信;</li>
-			<li>结合<i>AvalonJs</i>中的数据双像绑定功能,实现html与逻辑分离，抽离模版；</li>
+			<li>结合<i>AvalonJs</i>中的数据双向绑定功能,实现html与逻辑分离，抽离模版；</li>
 			<li>结合<i>MongoDB</i>，使用 <i>Nodejs</i> 完成中间层的业务数据的简易增删改查功能；</li>
 			<li>使用<i>Grunt</i>做<i>LESS</i>编译，和<i>Jshint</i>代码语法检查；</li>
 			<li>使用<i>Git</i>做代码版本控制；</li>
@@ -97,7 +97,7 @@ isResume: true
 		</div>
 	</div>
 	<div class="body">
-		<div>Pubjs框架采用类式继承、SPA跳hash路由，支持广播与冒泡的消息传送机制，支持http、ajax、websocket多种数据交互形式，内引入avalon框架的双像绑定，自由模版等。</div>
+		<div>Pubjs框架采用类式继承、SPA跳hash路由，支持广播与冒泡的消息传送机制，支持http、ajax、websocket多种数据交互形式，内引入avalon框架的双向绑定，自由模版等。</div>
 		<div>我参与了此框架的设计以及组件的开发。独立开发的组件有固头固侧表格，侧边栏等。
 		</div>
 	</div>
