@@ -10,7 +10,7 @@ isResume: true
 
 <div class="desc">
 	<div class="wrapper">
-		<img class="" src="http://heydelilah.github.io/data/me.jpg" alt="delilah" />
+		<img class="" src="/data/me.jpg" alt="delilah" />
 		<p class="">2年web前端开发经验，曾参与开发js框架，有nodejs开发经验。</p>
 	</div>
 </div>
@@ -34,7 +34,7 @@ isResume: true
 	</div>
 	<div class="l2">
 		<div>本科 广东工业大学</div>
-		<span>计算机科学与技术</span>
+		<span>计算机科学与技术专业</span>
 	</div>
 	<div class="l3">2013年毕业</div>
 </div>
@@ -42,10 +42,10 @@ isResume: true
 
 <h1 class="title wow flipInX" id="section-3"><i class="fa fa-code-fork"></i> 项目经验</h1>
 
-<div class="box">
+<div class="project">
 	<div class="header">	
 		<div class="fl">
-			<div class="name wow slideInLeft">互联网广告需求方平台(DSP) -BinddingX项目</div>
+			<div class="project-title wow slideInLeft">互联网广告需求方平台(DSP) -BiddingX项目</div>
 			<span class="duty">负责web前端平台开发</span>	
 		</div>
 		<div class="fr">
@@ -53,16 +53,21 @@ isResume: true
 		</div>
 	</div>
 	<div class="body">
-		<div>为广告主提供广告位实时竞价服务，实现广告精准投放，同时提供详细的监测数据报告。对接的渠道众多，如腾讯、阿里、新浪等。</div>
-		<div>本人参与前端平台开发部分，搭建平台中的各个页面、开发前端功能组件、以及与后端数据交互。
-		</div>
+		<div>BiddingX项目为广告主提供广告位实时竞价服务，实现广告精准投放，同时提供详细的监测数据报告。<a href="http://www.biddingx.com/" class="link" target="_blank">官网链接</a></div>
+		<ul class="skills">
+			<li>使用<i>Pubjs</i>框架进行开发，使用<i>Seajs</i>做依赖加载，使用<i>Ajax</i>与服务端通信;</li>
+			<li>结合<i>AvalonJs</i>中的数据双工绑定功能,实现html与逻辑分离，抽离模版；</li>
+			<li>结合<i>Mongodb</i>，使用 <i>Nodejs</i> 完成中间层的业务数据的简易增删改查功能；</li>
+			<li>使用<i>Grunt</i>做<i>LESS</i>编译，和<i>Jshint</i>代码语法检查；</li>
+			<li>使用<i>Git</i>做代码版本控制；</li>
+		</ul>
 	</div>
 </div>
 
-<div class="box">
+<div class="project">
 	<div class="header">	
 		<div class="fl">
-			<div class="name wow slideInLeft">互联网广告供应方平台(SSP) －Pubright项目</div>
+			<div class="project-title wow slideInLeft">互联网广告供应方平台(SSP) －Pubright项目</div>
 			<span class="duty">负责web前端平台开发和整体框架设计</span>	
 		</div>
 		<div class="fr">
@@ -70,16 +75,21 @@ isResume: true
 		</div>
 	</div>
 	<div class="body">
-		<div>为广告供应方提供智能化精细化广告发布管理、监测系统。</div>
-		<div>本人参与前端平台开发部分，参与框架设计，构建整体框架布局，开发工作组件，搭建具体内容页面。
-		</div>
+		<div>Pubright项目为广告供应方提供智能化精细化广告发布管理、监测系统。</div>
+		<ul class="skills">
+			<li>参加业务架构设计，构建整体框架布局；</li>
+			<li>负责开发重点功能组件，如 highgrid；</li>
+			<li>使用<i>Mocha</i>、<i>Chai</i>，进行前端单元测试;</li>
+			<li>负责与产品、设计、后端同事沟通协商，与后端同事共同拟定项目数据交互规范；</li>
+			<li>负责项目组进度，分配任务，合并与审核组员代码，对<i>git分支管理与git子模块</i>有体会心得；</li>
+		</ul>
 	</div>
 </div>
 
-<div class="box">
+<div class="project">
 	<div class="header">	
 		<div class="fl">
-			<div class="name wow slideInLeft">前端框架pubjs设计</div>
+			<div class="project-title wow slideInLeft">前端框架pubjs设计</div>
 			<span class="duty">参与框架设计与组件开发</span>	
 		</div>
 		<div class="fr">
@@ -93,27 +103,27 @@ isResume: true
 	</div>
 </div>
 
-<h1 class="title wow flipInX" id="section-4"><i class="fa fa-eye"></i> 自我描述</h1>
+<h1 class="title wow flipInX" id="section-4"><i class="fa fa-eye"></i> 个人项目</h1>
 
-<ol>
-	<li>拥有代码管理经验，曾负责项目前端小组的代码review与合并,对git分支管理有深入的认识与体会。</li>
-	<li>沟通合作能力强，团队协作能力好，多次和后端部门同事一起拟定数据交互规范，与产品部门同事策划讨论产品需求。</li>
-	<li>我的性格热情积极，曾多次被安排指导新入职的同事，为他指引代码规范以及讲解框架结构，帮助他及早进入日常工作。</li>
+<ol class="skills">
+	<li>基于<i>Angular</i>框架的在线通讯录；</li>
+	<li>基于<i>Reactjs</i>的简易投票系统；</li>
+	<li>基于<i>Jekyll</i>的个人 Github 博客。</li>
 </ol>
 
 <h1 class="title wow flipInX" id="section-5"><i class="fa fa-thumbs-o-up"></i> 技能评价</h1>
 
 <ul>
 	<li>精通 Javascript</li>
-	<li>精通 html和 css</li>
-	<li>掌握 nodejs，了解express框架</li>
+	<li>精通 HTML 和 CSS</li>
+	<li>掌握 Nodejs，了解 Express 框架</li>
 	<li>掌握 AngularJS框架，了解 AvalonJs框架</li>
 </ul>
 
 <h1 class="title wow flipInX" id="section-6"><i class="fa fa-map-marker"></i> 期望工作</h1>
 
 <ul>
-	<li>web前端开发工程师</li>
+	<li>Web 前端开发工程师</li>
 	<li>周末双休</li>
 	<li>工作地点广州、深圳、杭州都可</li>
 	<li>目前已离职，可快速到岗</li>

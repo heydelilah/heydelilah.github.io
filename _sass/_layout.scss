@@ -14,6 +14,10 @@
     text-align: right;
 }
 
+.link{
+    font-style: italic;
+    text-decoration: underline;
+}
 // 三角形装饰图案
 .graph{
     width: 0; 
@@ -321,7 +325,8 @@
     background-size: cover;
     img{
         width: 190px;
-        min-height: 120px;  
+        min-height: 120px; 
+        background-color: #fff; 
     }
 }
 .post-desc{
@@ -374,6 +379,15 @@
         padding-bottom: 10px;
         border-bottom: 1px solid #eee;
     }
+    .skills{
+        i{
+            color: $brand-color-dark;
+            font-style: normal;
+            display: inline-block;
+            padding: 0 3px;
+        }
+    }
+
 
     .layout-col-2{
         clear: both;
@@ -405,14 +419,11 @@
             text-align: right;
         }
     }
-    .box{
+    .project{
         margin-top: 30px;
         .header{
             overflow: hidden;
             margin-bottom: 10px;
-            .name{
-
-            }
             .duty{
                 color: #999;
             }
@@ -420,12 +431,12 @@
                 color: #999;
             }
         }
-        .body{
-            p{
 
+        &-title{
+            font-weight: bold;
             }
-        }
     }
+
 }
 .resume-wrapper{
     .page-content{
