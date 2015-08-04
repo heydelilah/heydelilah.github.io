@@ -457,12 +457,12 @@
         &-desc{
         }
         &-img{
-            max-width: 240px;
-            max-height: 130px;
+            width: 240px;
+            height: 130px;
             overflow: hidden;
             float: left;
             padding: 4px;
-            background-color: white;
+            background-color: #eee;
             border: 1px solid #dddddd;
             border-radius: 4px;
         }
