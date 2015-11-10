@@ -23,12 +23,15 @@
       <div class="footer-col  footer-col-3">
        
         {% for page in site.pages %}
-        {% if page.isResume %}
+
+        <!-- 简历 -->
+<!--         {% if page.isResume %}
         <a href="{{ page.url | prepend: site.baseurl }}" class="rss-subscribe fr">
           <i class="fa fa-file-text"></i>  
           <span> 个人简历</span>
         </a>
         {% endif %}
+ -->        
         {% endfor %}
 
         <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="rss-subscribe fl">

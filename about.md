@@ -142,8 +142,9 @@ isResume: true
 </ul>
 
 <h1 class="title wow flipInX" id="section-7"><i class="fa fa-envelope-o"></i> 联系方式</h1>
-<a class="fr" href="{{site.url}}data/download/resume.pdf" title="下载pdf版本"><i class="fa fa-file-pdf-o"></i> 下载 PDF 版本</a>
-<p>chongjs@163.com</p>
+<!-- <a class="fr" href="{{site.url}}data/download/resume.pdf" title="下载pdf版本"><i class="fa fa-file-pdf-o"></i> 下载 PDF 版本</a>
+ -->
+ <p>chongjs@163.com</p>
 
 </article>
 
