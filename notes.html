@@ -1,0 +1,112 @@
+---
+layout: default
+isNotes: true
+---
+
+<style>
+	.container{
+		min-height: 80%
+	}
+	.titleY{}
+	.titleM{
+		margin-top: 1em;
+	}
+	.post{
+		line-height: 30px;
+	}
+	.post a{
+		font-size: 16px;
+
+	}
+	.post .info{
+		color: #888;
+		float: right;
+	}
+	.post .date i{
+		margin-right: 5px;
+	}
+	.clear{
+		clear: both;
+	}
+	li {
+		list-style: none;
+	}
+</style>
+
+<header class="container">
+	<p>每日一记</p>
+</header>
+<div class="container J_list"></div>
+
+<script src="libs/handlebars-v4.0.4.js"></script>
+<script src="libs/moment.js"></script>
+<script src="notes_config.js"></script>
+<script>
+	$( document ).ready(function() {
+		var wrapper = $('.J_list');
+		var date;
+
+		var source = ['<li class="post clear row">',
+			'<a href="\{\{url\}\}" class="col-sm-6">',
+				'\{\{#if title\}\}',
+					'\{\{title\}\}',
+				'\{\{else\}\}',
+					'\{\{date\}\}',
+				'\{\{/if\}\}',
+			'</a>',
+			'<span class="date info col-sm-3">',
+				'<i class="fa fa-calendar"></i>',
+				'\{\{date\}\}',
+			'</span>',
+		'</li>'].join('');
+		var template = Handlebars.compile(source);
+
+
+		// 格式化
+		function format(data){
+			var result = {}, value, date, y, m, d;
+
+			for (var i = 0; i < data.length; i++) {
+				value = data[i];
+				date = value.date;
+				y = date.slice(0, 4);
+				m = date.slice(4, 6);
+				d = date.slice(6);
+
+				if(!result[y]){
+					result[y] = {};
+				}
+				if(!result[y][m]){
+					result[y][m] = [];
+				}
+				result[y][m].push({
+					'date': moment(y+m+d, 'YYYYMMDD').format('YYYY-MM-DD'),
+					'title': value.title,
+					'tag': value.tag,
+					'url': './notes/'+y+'/'+m+'/'+d+'.md'
+				});
+			};
+
+			return result;
+		}
+
+		var data = format(DATA);
+
+		var list = '<ul>';
+		for(var year in data){
+			list = list+ '<li><h3 class="titleY">'+year+'年</h3><ul class="wrapperY">';
+			for(var month in data[year]){
+				var posts = data[year][month];
+				list = list+ '<li><h3 class="titleM">'+month+'月</h3><ul class="wrapperM"></li>';
+				for (var i = 0; i < posts.length; i++) {
+
+					list = list+ template(posts[i]);
+				};
+				list+='</ul></li>';
+			}
+			list+='</ul>';
+		}
+
+		$(list).appendTo(wrapper);
+	})
+</script>

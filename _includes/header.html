@@ -1,9 +1,11 @@
 <header class="site-header">
   <!-- 装饰图案 -->
   <div class="header-decorate"></div>
-  
+
   <div class="wrapper">
     <a class="site-title" href="{{ site.baseurl }}/">Hey<span>D</span>elilah</a>
+
+
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -16,6 +18,13 @@
 
       <div class="trigger">
         {% for page in site.pages %}
+
+        {% if page.isNotes %}
+            <a href="{{ page.url | prepend: site.baseurl }}" class="rss-subscribe fr">
+              <span>每日一记</span>
+            </a>
+        {% endif %}
+
           {% if page.title %}
           <!-- <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }} </a> -->
           {% endif %}
@@ -34,7 +43,7 @@
         var bodyWidth = document.body.clientWidth;
         var graphWidth = 10;
         var num = Math.floor(bodyWidth/graphWidth);
-        
+
         for (var i = 0; i < num; i++) {
           $('<i class="graph"/>').appendTo(target)
         };
@@ -44,7 +53,7 @@
 
       // 监听窗口变化
       $(window).bind('resize', function(){
-        
+
         // 清空原来的图形
         $('.header-decorate').empty();
 
