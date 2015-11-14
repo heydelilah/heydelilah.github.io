@@ -26,7 +26,7 @@ var DATA = [
 		tag: ""
 	},
 	{
-		date: "20151109",
+		date: "20151108",
 		title: "自己的 Github page 的 UV 过低？",
 		tag: ""
 	},
