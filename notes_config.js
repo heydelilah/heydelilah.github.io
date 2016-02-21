@@ -34,6 +34,11 @@ var DATA = [
 		date: "20151109",
 		title: "开发环境的一些东西，记一记",
 		tag: ""
+	},
+	{
+		date: "20160221",
+		title: "vue.js 初探",
+		tag: ""
 	}
 ];
 
