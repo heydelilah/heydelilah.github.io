@@ -12,8 +12,8 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
   <link rel="stylesheet" href="http://heydelilah.github.io/fontawesome4.3.0/css/font-awesome.min.css">
 
-  <script src="/libs/jquery.min.js"></script>
-  <script src="/libs/wow.min.js"></script>
+  <script src="{{ "/libs/jquery.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/libs/wow.min.js" | prepend: site.baseurl }}"></script>
   <script>
       new WOW().init();
   </script>

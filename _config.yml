@@ -12,3 +12,5 @@ linkedin: https://cn.linkedin.com/pub/jing-liu/50/8a2/94b
 markdown: kramdown
 
 paginate: 7
+gems: [jekyll-paginate]
+paginate_path: "page:num"
