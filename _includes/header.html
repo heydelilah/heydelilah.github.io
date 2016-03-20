@@ -19,10 +19,16 @@
       <div class="trigger">
         {% for page in site.pages %}
 
-        {% if page.isNotes %}
+        <!-- {% if page.isNotes %}
             <a href="{{ page.url | prepend: site.baseurl }}" class="rss-subscribe fr">
               <span>每日一记</span>
             </a>
+        {% endif %}
+ -->
+        {% if page.isResume %}
+        <a href="{{ page.url | prepend: site.baseurl }}" class="rss-subscribe fr mt15" >
+          <span> 关于我</span>
+        </a>
         {% endif %}
 
           {% if page.title %}
@@ -33,34 +39,5 @@
     </nav>
   </div>
 
-
-  <script>
-    if($){
-
-      // 动态构建装饰图案
-      function buildGraph(){
-        var target = $('.header-decorate');
-        var bodyWidth = document.body.clientWidth;
-        var graphWidth = 10;
-        var num = Math.floor(bodyWidth/graphWidth);
-
-        for (var i = 0; i < num; i++) {
-          $('<i class="graph"/>').appendTo(target)
-        };
-      }
-
-      buildGraph();
-
-      // 监听窗口变化
-      $(window).bind('resize', function(){
-
-        // 清空原来的图形
-        $('.header-decorate').empty();
-
-        buildGraph();
-      })
-
-    }
-  </script>
 
 </header>

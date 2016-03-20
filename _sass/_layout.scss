@@ -21,8 +21,8 @@
 }
 // 三角形装饰图案
 .graph{
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid $brand-color-dark;
@@ -144,6 +144,44 @@
 .mr3{
     margin-right: 3em;
 }
+/*边距*/
+.mt5{ margin-top: 5px; }
+.ml5{ margin-left: 5px; }
+.mr5{ margin-right: 5px; }
+.mb5{ margin-bottom: 5px; }
+
+.mt10{ margin-top: 10px; }
+.ml10{ margin-left: 10px; }
+.mr10{ margin-right: 10px; }
+.mb10{ margin-bottom: 10px; }
+
+.mt15{ margin-top: 15px; }
+.ml15{ margin-left: 15px; }
+.mr15{ margin-right: 15px; }
+.mb15{ margin-bottom: 15px; }
+
+.mt20{ margin-top: 20px; }
+.ml20{ margin-left: 20px; }
+.mr20{ margin-right: 20px; }
+.mb20{ margin-bottom: 20px; }
+
+.pd5{ padding: 5px; }
+.pt5{ padding-top: 5px; }
+.pl5{ padding-left: 5px; }
+.pr5{ padding-right: 5px; }
+.pb5{ padding-bottom: 5px; }
+
+.pd10{ padding: 10px; }
+.pt10{ padding-top: 10px; }
+.pl10{ padding-left: 10px; }
+.pr10{ padding-right: 10px; }
+.pb10{ padding-bottom: 10px; }
+
+.pd20{ padding: 20px; }
+.pt20{ padding-top: 20px; }
+.pl20{ padding-left: 20px; }
+.pr20{ padding-right: 20px; }
+.pb20{ padding-bottom: 20px; }
 
 
 /**
@@ -341,8 +379,8 @@
     background-size: cover;
     img{
         width: 190px;
-        min-height: 120px; 
-        background-color: #fff; 
+        min-height: 120px;
+        background-color: #fff;
     }
 }
 .post-desc{
@@ -351,7 +389,7 @@
     &-text{
         margin-bottom: 0;
         height: 100px;
-        font-size: $small-font-size;   
+        font-size: $small-font-size;
     }
 }
 .post-readmore{
@@ -362,7 +400,7 @@
         color: $brand-color-dark;
         text-decoration: underline;
     }
-    
+
     &:visited{
         color: $brand-color-dark;
     }
@@ -383,10 +421,10 @@
         img{
             margin-bottom:20px;
             width: 150px;
-            height: 150px; 
+            height: 150px;
             -moz-border-radius: 75px;
             -webkit-border-radius: 75px;
-            border-radius: 75px;    
+            border-radius: 75px;
         }
     }
     .title{
@@ -479,7 +517,7 @@
 }
 .resume-wrapper{
     .page-content{
-        background-image: none;  
+        background-image: none;
     }
 }
 
@@ -489,7 +527,7 @@
     padding-left: 0;
     margin:0;
     li{
-        display: inline;  
+        display: inline;
         a, span{
             position: relative;
             float: left;
@@ -497,11 +535,11 @@
             margin-left: -1px;
             line-height: 1.42857143;
             color: $grey-color-dark;
-            text-decoration: none; 
+            text-decoration: none;
         }
         .act{
           color: $brand-color-dark;
-  
+
         }
         a{
             cursor: pointer;
