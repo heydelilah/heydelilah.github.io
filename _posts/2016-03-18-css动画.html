@@ -1,0 +1,503 @@
+---
+layout: post
+title:  "SVG 和 CSS 动效初探"
+date:   2016-03-18
+categories: Note
+tag: "学习笔记"
+desc: "回想一下，好像一直以来没怎么真正去做过什么 CSS 动画效果。这次通过几个动效，学习学习。"
+imgUrl: "data/post_thumb/css-animation.png"
+---
+
+<style>
+
+	i{
+		margin: 0 2px;
+		color: #21779b;
+		font-style: normal;
+	}
+
+	.detail p{
+		text-indent: 1em;
+	}
+
+	.outline {
+		margin: 0;
+		padding: 0;
+		padding-left: 1em;
+		margin-bottom: 20px;
+	}
+	.outline li{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		margin-bottom: -20px;
+	}
+
+	/* 旋转 */
+	@keyframes rotate-clockwise
+	{
+		from {
+			transform: none;
+			-webkit-transform: none;
+		}
+		to {
+			transform: rotate(360deg);
+			-webkit-transform: rotate(360deg);
+		}
+	}
+
+	/* 闪烁－忽明忽暗效果 */
+	@keyframes flicker
+	{
+		0% {
+			opacity: 0.5;
+			stroke-width: 0px;
+
+		}
+		50% {
+			opacity: 1;
+			stroke-width: 1px;
+		}
+		100% {
+			opacity: 0.5;
+			stroke-width: 0px;
+		}
+	}
+
+	/* 渐变 */
+	@keyframes gradient-color
+	{
+		0% {
+			stroke: url(#grad1);
+		}
+		25% {
+			stroke: url(#grad2);
+		}
+		50% {
+			stroke: url(#grad3);
+		}
+		75% {
+			stroke: url(#grad4);
+		}
+		100% {
+			stroke: url(#grad1);
+		}
+	}
+
+	/* 线条流动 */
+	@keyframes dash {
+		to {
+			stroke-dashoffset: 1489.444580078125;
+		}
+	}
+
+
+	svg.main{
+		width: 700px;
+		height: 700px;
+		background-color: #000433;
+		/*background-color: #21779b;*/
+		border-radius: 5px;
+	}
+
+
+	/* 顺时针转动 */
+	.rotate-clockwise
+	{
+		transform-origin: 349.533px 349.859px;
+		animation: 30s linear rotate-clockwise infinite;
+
+	}
+	/* 逆时针转动 */
+	.rotate-anticlockwise
+	{
+		transform-origin: 349.533px 349.859px;
+		animation: 30s linear rotate-clockwise infinite reverse;
+	}
+	/* 主圆 */
+	.circle-main {
+		fill: #031850;
+		stroke: #ffae01;
+		stroke-linejoin: round;
+		stroke-width: 1px;
+		filter: url(#filter-circle-main);
+		fill-opacity: 0;
+	}
+	/* 转动的三段弧形 */
+	.three-arc{
+		stroke: #ffae01;
+	    stroke-width: 6px;
+	    fill: none;
+	    fill-rule: evenodd;
+	}
+	/* 大小三角形 */
+	.triangle{
+		stroke-width: 12px;
+		fill: none;
+		fill-rule: evenodd;
+
+		stroke: url(#triangle-radial);
+	}
+	/* 流动的线条 */
+	.fluid-line {
+		stroke: #06a4ff;
+		stroke-width: 2px;
+		fill: none;
+		fill-rule: evenodd;
+
+		/* 流动效果 */
+		stroke-dasharray: 150, 600;
+		animation: dash 10s linear infinite;
+
+		/* 放大 */
+		transform-origin: 349.533px 349.859px;
+		transform: translate(132px, 182.1px) scale(1.03, 1.03);
+		-webkit-transform: translate(132px, 182.1px) scale(1.03, 1.03);
+	}
+	/* 发光的点 */
+	.shining-points {
+		fill: #06a4ff;
+		fill-rule: evenodd;
+		animation: 1s linear flicker infinite;
+		stroke: #06a4ff;
+	}
+	/* 多边形 */
+	.polygon{
+		stroke: #06a4ff;
+		stroke-width: 1px;
+		fill: none;
+		opacity: 0.3;
+		fill-rule: evenodd;
+	}
+
+	/* 柱形图动效 */
+
+	@keyframes bar-running {
+	    0%   { x: 0px;  }
+	    20% { x: 200px; }
+	    100% { x: 200px; }
+	}
+	.bar-lines .act{
+	    animation: 5s linear bar-running infinite;
+	}
+	@keyframes bar-fadding {
+	    0% { opacity: 0; }
+	    20% { opacity: 1; }
+	    100% { opacity: 1; }
+	}
+	.bar-wrapper{ animation: 5s linear bar-fadding infinite; }
+
+	.bar-grey{
+		fill: #B8B8B8;
+		opacity: 0.9;
+		width: 240px;
+		height: 14px;
+	}
+	.the-line{
+		height: 14px;
+		fill: #FFD819;
+		opacity: 0.9;
+	}
+
+	.running-text{
+		width: 200px;
+	    padding: 2px;
+	    color: #21779b;
+	    overflow: hidden;
+		border-radius: 5px;
+	    white-space: nowrap;
+		border: 1px solid #999;
+	    margin: 10px auto 30px;
+	    animation: 7s linear running-text infinite;
+	}
+
+	@keyframes running-text
+		{
+		    0% {
+		        text-indent: -200px;
+		    }
+		    100% {
+		        text-indent: 200px;
+		    }
+		}
+
+</style>
+
+<p>回想一下，好像一直以来没怎么真正去做过什么 CSS 动画效果。这次通过几个动效，学习学习。</p>
+
+<h2>几个动画效果：</h2>
+<ul class="outline">
+	<li>1. 绕圆心旋转</li>​
+	<li>2. 亮点呼吸</li>​
+	<li>3. 线条流动</li>​
+	<li>4. 渐变色流动</li>​
+	<li>5. 文字超长后滚动</li>​
+	<li>6. 柱状图增长式更新</li>​
+</ul>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 700 700" class="main">
+
+	<!-- 正圆形 -->
+	<circle cx="349.533" cy="349.859" r="299.908" class="circle-main"/>
+
+	<!-- 三段弧线 -->
+	<g class="rotate-clockwise" width="700" height="700" viewBox="0 0 700 700">
+		<path d="M198.842,19.693 C229.791,8.887 263.053,3.013 297.685,3.013 C331.674,3.013 364.342,8.671 394.801,19.096 M592.325,359.365 C579.536,426.823 544.181,486.289 494.414,529.603 M100.428,529.142 C50.893,485.827 15.725,426.476 3.011,359.180 "
+		transform="translate(52,48)"
+		class="three-arc">
+		</path>
+	</g>
+
+	<g>
+		<!-- 流动线条 -->
+		<path d="M-14.161,321.501 C-19.210,321.501 -23.309,319.416 -25.405,315.785 C-27.501,312.153 -27.254,307.562 -24.726,303.189 L210.423,-103.623 C212.949,-107.993 216.804,-110.500 220.999,-110.500 C225.195,-110.500 229.050,-107.993 231.574,-103.622 L466.725,303.187 C469.252,307.562 469.500,312.153 467.404,315.785 C465.307,319.416 461.208,321.501 456.159,321.501 L-14.161,321.501 Z" class="fluid-line"/>
+
+		<!-- <path d="M114.511,201.597 C117.651,206.997 122.787,206.997 125.927,201.597 L235.079,13.820 C238.218,8.419 235.682,4.001 229.442,4.001 L10.996,4.001 C4.756,4.001 2.220,8.419 5.359,13.820 L114.511,201.597 Z" transform="translate(229.78 278.17)"  class="triangle"/> -->
+
+        <path d="M258.827,25.723 C261.947,20.327 267.052,20.327 270.172,25.723 L505.380,432.518 C508.500,437.914 505.952,442.328 499.718,442.328 L29.281,442.328 C23.047,442.328 20.499,437.914 23.619,432.518 L258.827,25.723 Z" transform="translate(85 50)" class="triangle"/ >
+	</g>
+
+	<g class="rotate-anticlockwise" width="700" height="700" viewBox="0 0 700 700">
+		<!-- 16个点 -->
+		 <path d="M660.840,333.447 C659.736,333.447 658.840,332.551 658.840,331.447 C658.840,330.342 659.736,329.447 660.840,329.447 C661.945,329.447 662.840,330.342 662.840,331.447 C662.840,332.551 661.945,333.447 660.840,333.447 ZM636.538,207.227 C635.518,207.650 634.348,207.166 633.925,206.145 C633.502,205.125 633.987,203.955 635.007,203.532 C636.028,203.109 637.198,203.594 637.621,204.614 C638.043,205.635 637.559,206.805 636.538,207.227 ZM636.521,455.662 C637.542,456.085 638.026,457.255 637.604,458.276 C637.181,459.296 636.011,459.781 634.991,459.358 C633.970,458.935 633.485,457.765 633.908,456.745 C634.331,455.724 635.501,455.240 636.521,455.662 ZM562.956,99.916 C562.174,99.135 562.174,97.869 562.956,97.088 C563.737,96.307 565.003,96.307 565.784,97.088 C566.565,97.869 566.565,99.135 565.784,99.916 C565.003,100.697 563.737,100.697 562.956,99.916 ZM565.753,562.964 C566.534,563.745 566.534,565.012 565.753,565.793 C564.972,566.574 563.705,566.574 562.924,565.793 C562.143,565.012 562.143,563.745 562.924,562.964 C563.705,562.183 564.972,562.183 565.753,562.964 ZM456.736,28.932 C455.716,28.509 455.231,27.340 455.654,26.319 C456.077,25.299 457.246,24.814 458.267,25.237 C459.287,25.659 459.772,26.829 459.349,27.850 C458.927,28.870 457.757,29.355 456.736,28.932 ZM456.695,633.934 C457.716,633.511 458.886,633.996 459.308,635.016 C459.731,636.037 459.246,637.207 458.226,637.629 C457.205,638.052 456.036,637.567 455.613,636.547 C455.190,635.526 455.675,634.356 456.695,633.934 ZM331.438,4.000 C330.333,4.000 329.438,3.105 329.438,2.000 C329.438,0.895 330.333,-0.000 331.438,-0.000 C332.543,-0.000 333.438,0.895 333.438,2.000 C333.438,3.105 332.543,4.000 331.438,4.000 ZM331.394,658.849 C332.498,658.849 333.394,659.744 333.394,660.849 C333.394,661.953 332.498,662.849 331.394,662.849 C330.289,662.849 329.394,661.953 329.394,660.849 C329.394,659.744 330.289,658.849 331.394,658.849 ZM206.136,28.915 C205.116,29.338 203.946,28.853 203.523,27.833 C203.101,26.812 203.585,25.642 204.606,25.220 C205.626,24.797 206.796,25.282 207.219,26.302 C207.642,27.323 207.157,28.492 206.136,28.915 ZM206.095,633.917 C207.116,634.339 207.600,635.509 207.178,636.530 C206.755,637.550 205.585,638.035 204.565,637.612 C203.544,637.190 203.059,636.020 203.482,634.999 C203.905,633.979 205.075,633.494 206.095,633.917 ZM97.079,99.885 C96.298,99.104 96.298,97.837 97.079,97.056 C97.860,96.275 99.126,96.275 99.907,97.056 C100.689,97.837 100.689,99.104 99.907,99.885 C99.126,100.666 97.860,100.666 97.079,99.885 ZM99.876,562.933 C100.657,563.714 100.657,564.980 99.876,565.761 C99.095,566.542 97.829,566.542 97.048,565.761 C96.267,564.980 96.267,563.714 97.048,562.933 C97.829,562.152 99.095,562.152 99.876,562.933 ZM26.310,207.186 C25.290,206.764 24.805,205.594 25.228,204.573 C25.651,203.553 26.821,203.068 27.841,203.491 C28.862,203.914 29.346,205.084 28.924,206.104 C28.501,207.125 27.331,207.609 26.310,207.186 ZM26.293,455.621 C27.314,455.199 28.484,455.683 28.907,456.704 C29.329,457.724 28.845,458.894 27.824,459.317 C26.804,459.740 25.634,459.255 25.211,458.235 C24.788,457.214 25.273,456.044 26.293,455.621 ZM1.991,333.402 C0.887,333.402 -0.009,332.507 -0.009,331.402 C-0.009,330.298 0.887,329.402 1.991,329.402 C3.096,329.402 3.991,330.298 3.991,331.402 C3.991,332.507 3.096,333.402 1.991,333.402 Z"
+		 transform="translate(18.58 18.58)"
+		 class="shining-points"/>
+
+		<!-- 16边形 -->
+		<path
+			d="M561.235,561.235 L454.670,632.439 L328.969,657.442 L203.268,632.439 L96.703,561.235 L25.499,454.670 L0.496,328.969 L25.499,203.268 L96.703,96.703 L203.268,25.499 L328.969,0.496 L454.670,25.499 L561.235,96.703 L632.439,203.268 L657.442,328.969 L632.439,454.670 L561.235,561.235 Z"
+			transform="translate(21.03 21.03)"
+			class="polygon"/>
+
+		<!-- 八边形奇数 -->
+		<path
+			d="M565.548,565.548 L331.500,662.494 L97.452,565.548 L0.506,331.500 L97.452,97.452 L331.500,0.506 L565.548,97.452 L662.494,331.500 L565.548,565.548 Z"
+			transform="translate(18.5 18.5)"
+			class="polygon"/>
+
+		<!-- 八边形偶数 -->
+		<path
+			d="M432.978,612.110 L179.646,612.110 L0.514,432.978 L0.514,179.646 L179.646,0.514 L432.978,0.514 L612.110,179.646 L612.110,432.978 L432.978,612.110 Z"
+			transform="translate(43.69 43.69)"
+			class="polygon"/>
+	</g>
+
+	<!-- 正圆发光 -->
+	<filter id="filter-circle-main" filterUnits="userSpaceOnUse">
+		<feGaussianBlur stdDeviation="6" in="SourceAlpha"/>
+		<feComposite/>
+		<feComposite/>
+		<feComposite result="outerGlowBlur"/>
+		<feFlood flood-color="#0173ff" flood-opacity="0.22"/>
+		<feComposite operator="in" in2="outerGlowBlur"/>
+		<feBlend mode="screen" in2="SourceGraphic" result="outerGlow"/>
+		<feComposite in="SourceGraphic" result="shadowed"/>
+		<feGaussianBlur stdDeviation="9" in="SourceAlpha" result="innerGlowBlur"/>
+		<feFlood flood-color="#0173ff" flood-opacity="0.22"/>
+		<feComposite operator="out" in2="innerGlowBlur"/>
+		<feComposite operator="in" in2="SourceAlpha"/>
+		<feBlend mode="screen" in2="shadowed" result="innerGlow"/>
+	</filter>
+
+
+	<!-- 三角形渐变 -->
+	<radialGradient
+		id="triangle-radial"
+		cx="0%"
+		cy="90%"
+		r="50%">
+
+		<!-- 逆时针移动 -->
+		<animate
+			attributeName="cx"
+			values="0%;100%;50%;0%"
+			dur="4s"
+			repeatCount="indefinite" />
+
+		<animate
+			attributeName="cy"
+			values="90%;90%;20%;90%"
+			dur="4s"
+			repeatCount="indefinite" />
+		<stop stop-color="yellow" offset="0">
+			<!-- <animate
+				attributeName="stop-color"
+				values="#e5a212;yellow;#e5a212;"
+				dur="4s"
+				repeatCount="indefinite" /> -->
+		</stop>
+		<stop stop-color="#e5a212" offset="100%"/>
+	</radialGradient>
+</svg>
+
+<div style="text-align: right; color: #999">Design by 玉木</div>
+
+<div class="detail mt10">
+	<h4>1. 旋转</h4>
+	<div>
+		<p><i>transform</i> 属性：从 <i>none</i>  到 <i>rotate(360deg)</i>;</p>
+		<p>注意旋转中心点的设置；</p>
+	</div>
+
+	<h4>2. 亮点呼吸</h4>
+	<div>
+		<p><i>opacity</i> 属性：从 0.5  到 1;</p>
+		<p><i>stroke-width</i> 属性：从 <i>0px</i>  到 <i>1px</i>;</p>
+	</div>
+
+	<h4>3. 线条流动</h4>
+	<div>
+		<p>利用 <i>SVG</i> 结点的 <i>stroke</i> 属性： </p>
+
+		{% highlight css %}
+@keyframes dash {
+    to {
+        // 等于总的路径长度，使得动画平滑过渡
+        stroke-dashoffset: 1489.444580078125;
+    }
+}
+.fluid-line {
+    // dash 的长度， dash 之间的间隔
+    stroke-dasharray: 150, 600;
+    animation: dash 10s linear infinite;
+}
+		{% endhighlight %}
+	</div>
+
+	<h4>4. 渐变色流动</h4>
+	<div>
+
+		<p>- 填充 <i>stroke: url(#triangle-radial)</i></p>
+		<p>- 径向渐变</p>
+		<p>- 沿着三角形三个顶点移动</p>
+
+		{% highlight html %}
+<radialGradient
+	id="triangle-radial"
+	cx="0%"
+	cy="90%"
+	r="50%">
+
+	<animate
+		attributeName="cx"
+		values="0%;100%;50%;0%"
+		dur="4s"
+		repeatCount="indefinite" />
+
+	<animate
+		attributeName="cy"
+		values="90%;90%;20%;90%"
+		dur="4s"
+		repeatCount="indefinite" />
+	<stop stop-color="yellow" offset="0" />
+	<stop stop-color="#e5a212" offset="100%"/>
+
+</radialGradient>
+		{% endhighlight %}
+
+	</div>
+
+
+	<h4>5. 文字超长后滚动</h4>
+	<div>
+
+		<div>
+			<div class="running-text">
+				身健在，且加餐。舞裙歌板尽情欢。
+			</div>
+		</div>
+
+		<p>变更 <i>text-indent</i></p>
+
+		{% highlight css %}
+.running-text{
+	width: 200px;
+	overflow: hidden;
+	white-space: nowrap;
+	border: 1px solid #999;
+	animation: 7s linear running-text infinite;
+}
+
+@keyframes running-text
+	{
+	    0% {
+	        text-indent: -200px;
+	    }
+	    100% {
+	        text-indent: 200px;
+	    }
+	}
+		{% endhighlight %}
+	</div>
+
+
+	<h4>6. 柱状图增长式更新</h4>
+	<div>
+		<svg class="svg-bar" width="700px" height="230px" viewBox="0 0 700 230">
+			<g class="bar-wrapper">
+			    <text font-size="21" font-weight="500" line-spacing="38" fill="#000">
+			        <tspan x="150" y="54">广东</tspan>
+			        <tspan x="150" y="92">浙江</tspan>
+			        <tspan x="150" y="130">上海</tspan>
+			        <tspan x="150" y="168">江苏</tspan>
+			        <tspan x="150" y="206">北京</tspan>
+			    </text>
+
+			    <rect class="bar-grey" x="200" y="39" ></rect>
+			    <rect class="bar-grey" x="200" y="78" ></rect>
+			    <rect class="bar-grey" x="200" y="117" ></rect>
+			    <rect class="bar-grey" x="200" y="156" ></rect>
+			    <rect class="bar-grey" x="200" y="195" ></rect>
+			</g>
+			<clipPath id="clip-a">
+				<path d="M 200,40 L 440,40 L 440,220 L 200,220 Z" clip-rule="evenodd" />
+			</clipPath>
+
+			<g class="bar-lines" clip-path="url(#clip-a)">
+				<rect class="the-line act" x="200" y="39" width="240"></rect>
+			    <rect class="the-line act" x="200" y="78" width="207"></rect>
+			    <rect class="the-line act" x="200" y="117" width="181"></rect>
+			    <rect class="the-line act" x="200" y="155" width="155"></rect>
+			    <rect class="the-line act" x="200" y="194" width="112"></rect>
+			</g>
+		</svg>
+
+		{% highlight css %}
+// 变更 x 位置
+@keyframes running {
+    0%   { x: 894px;  }
+    3.3% { x: 1134px; }
+    100% { x: 1134px; }
+}
+.lines .act{
+    animation: 15s linear running infinite;
+}
+// 淡入效果
+@keyframes fadding {
+    0% { opacity: 0; }
+    3.3% { opacity: 1; }
+    100% { opacity: 1; }
+}
+.wrapper{ animation: 15s linear fadding infinite; }
+		{% endhighlight %}
+
+		计算公式 <i> x(占比) = speed(动画完成时长) / wait(间隔时间) * 100; </i>
+
+		<div class="mt20">SVG 遮罩  <i>clip-path="url(#clip)"</i></div>
+
+		{% highlight html %}
+
+<clipPath id="clip">
+	<path d="M 200,40 L 440,40 L 440,220 L 200,220 Z"
+		clip-rule="evenodd" />
+</clipPath>
+		{% endhighlight %}
+	</div>
+</div>
+
+
+<h2>感想：</h2>
+	<p>1. 其实基本上是从 PhotoShop 中导出 SVG 路径，当作 HTML 标签，加上适当的 CSS 动画。
+	<p>2. 开发过程中，了解到一些 SVG 特有的属性和技巧，比如 SVG 遮罩和颜色渐变等。</p>
+	<p>3. 动画还蛮好玩的，虽然没有深入研究其原理核心，但看着最后成功实现了视觉稿的效果，也是蛮有成就感的。</p>
