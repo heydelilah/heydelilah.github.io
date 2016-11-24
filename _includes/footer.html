@@ -6,7 +6,7 @@
 
     <div class="footer-col-wrapper cl">
       <div class="footer-col  footer-col-1">
-        <a href="mailto:{{ site.email }}"> 
+        <a href="mailto:{{ site.email }}">
           <i class="fa fa-envelope-o"></i>
           <span>{{ site.email }}</span>
         </a>
@@ -21,27 +21,33 @@
 
 
       <div class="footer-col  footer-col-3">
-       
+
         {% for page in site.pages %}
 
-        <!-- 简历 -->
-<!--         {% if page.isResume %}
+        <!-- {% if page.isResume %}
         <a href="{{ page.url | prepend: site.baseurl }}" class="rss-subscribe fr">
-          <i class="fa fa-file-text"></i>  
-          <span> 个人简历</span>
+          <i class="fa fa-file-text"></i>
+          <span> about</span>
         </a>
+        {% endif %} -->
+
+        {% if page.isNotes %}
+            <a href="{{ page.url | prepend: site.baseurl }}" class="rss-subscribe fr">
+              <span>每日一记</span>
+            </a>
         {% endif %}
- -->        
+
+
         {% endfor %}
 
         <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="rss-subscribe fl">
-          <i class="fa fa-rss"></i>  
+          <i class="fa fa-rss"></i>
           <span> RSS</span>
         </a>
       </div>
 
 
-  <!--     
+  <!--
       <div class="footer-col  footer-col-2">
         <a href="https://github.com/{{ site.linkedin }}">
           <i class="fa fa-linkedin"></i>
