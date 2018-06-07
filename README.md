@@ -1,9 +1,6 @@
 heydelilah.github.io
 ====================
 
-Delilahi's github blog.
+Welcome to Delilahi's Blog.
 
 
-本地生成：
-
-`jekyll serve`
