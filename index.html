@@ -1,69 +1,12 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HeyDelilah</title>
+</head>
+<body>
 
-<div class="home">
-
-  <h1 class="page-heading"></h1>
-
-  <ul class="post-list">
-    {% for post in paginator.posts %}
-      <li class="post-container">
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-
-        <div class="post-meta">
-          <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-          <span class="post-tag">
-            <i class="fa fa-tag"></i> {{ post.tag }}</span>
-          </span>
-        </div>
-        <div class="post-container">
-          <div class="fl post-thumbnail">
-            <img src="/{{post.imgUrl}}" alt="{{post.title}}">
-          </div>
-          <div class="fl post-desc">
-            <p class="post-desc-text">{{post.desc}}</p>
-            <a class="post-readmore"  href="{{ post.url | prepend: site.baseurl }}">Read more...</a>
-          </div>
-        </div>
-
-      </li>
-    {% endfor %}
-  </ul>
-
-  <div class="container">  
-    <ul class="pagination fr">
-      <li>
-        {% if paginator.previous_page %}
-          <a href="{{ paginator.previous_page_path }}" class="previous">
-            <i class="fa fa-chevron-left"></i>
-          </a>
-        {% else %}
-          <span class="previous">
-            <i class="fa fa-chevron-left"></i>
-          </span>
-        {% endif %}
-      </li>
-
-      {% for i in (1..paginator.total_pages) %}
-      <li>
-        {% if i == paginator.page %}
-          <span class="act">{{i}}</span>
-        {% else %}
-          <span>{{i}}</span>
-        {% endif %}
-      </li>
-      {% endfor %}
-
-
-      <li>
-        {% if paginator.next_page %}
-          <a href="{{ paginator.next_page_path }}" class="next"><i class="fa fa-chevron-right"></i></a>
-        {% else %}
-          <span class="next "><i class="fa fa-chevron-right"></i></span>
-        {% endif %}
-      </li>
-    </ul>
-  </div>
-
-</div>
+  Hello
+  
+</body>
+</html>
