@@ -3,6 +3,7 @@
 _backup/*
 .sass-cache/*
 _site
+/node_modules
 
 
 _notes
