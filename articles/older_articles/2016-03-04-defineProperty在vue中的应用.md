@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Object.defineProperty()函数 在 vue 响应式系统的中应用"
+title:  Object.defineProperty()函数 在 vue 响应式系统的中应用
 date:   2016-03-04
 categories: Note
 tag: "学习笔记"

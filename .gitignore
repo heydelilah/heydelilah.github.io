@@ -1,10 +1,9 @@
 .DS_Store
 */.DS_Store
-_backup/*
-.sass-cache/*
-_site
 /node_modules
+.sass-cache/*
 
-
+_backup/*
+_site
 _notes
 _knowledge_base

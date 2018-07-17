@@ -4,23 +4,30 @@ import ReactMarkdown from "react-markdown";
 import list from "../output/list.json";
 import hljs from "./libs/highlight.min.js";
 
+import './App.css';
+import './css/highlight.css';
 import './css/tomorrow-night-eighties.css';
 
 
-// console.log(hljs)
-// hljs.initHighlightingOnLoad();
+console.log(hljs)
+hljs.initHighlightingOnLoad();
 
 class ListItem extends React.Component {
 	render(){
 		var articles = this.props.data.map((item, index) => 
-			<li key={index} onClick={()=>this.props.onClick(item.id)}>
-				<div>{item.title || item.filename }</div>
-				<div>{item.date}</div>
+			<li className="PostItem" 
+				key={index} 
+				onClick={()=>this.props.onClick(item.id)}>
+
+				<div className="PostTitle">{item.title || item.filename }</div>
+				<div className="PostDate">
+					<span className="iconfont">&#xe697;</span>
+					{item.date}</div>
 			</li>
 		)
 
 		return(
-			<ul>{articles}</ul>
+			<ul className="PostList">{articles}</ul>
 		);
 
 	}	
@@ -44,13 +51,13 @@ class App extends Component{
 		super();
 
 		this.state = {
-			isShow: true,
+			isShowList: true,
 			content: ''
 		};
 	}
-	back(){
+	backToHome(){
 		this.setState({
-			isShow: true,
+			isShowList: true,
 			content: ''
 		});
 	}
@@ -61,15 +68,22 @@ class App extends Component{
 		});
 		
 		this.setState({
-			isShow: false,
+			isShowList: false,
 			content: record.content
 		});
 	}
 	render(){
-		return (<div>
-			{this.state.isShow ? <ListItem data={list.older_articles} onClick={(i)=>this.toggle(i)} /> :
-			<Post content={this.state.content} onClick={()=>this.back()} />	
-			}
+		return (<div className="main">
+
+			<header onClick={()=>this.backToHome()}>Heydelilah</header>
+
+			<div className="">
+				{this.state.isShowList ? <ListItem data={list.older_articles} onClick={(i)=>this.toggle(i)} /> :
+				<Post content={this.state.content} onClick={()=>this.backToHome()} />	
+				}
+			</div>
+
+			<footer></footer>
 		</div>)
 	}
 }

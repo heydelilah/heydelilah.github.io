@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
-    "article": "node backend/compiler.js"
+    "compile": "node backend/compiler.js"
   },
   "repository": {
     "type": "git",
