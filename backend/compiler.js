@@ -9,15 +9,13 @@ function readContentFromFile(filename, path){
 
 	var obj = {};
 
-	const regex = /^---(\n|.)*---/;
+	const regex = /^---((\n|.)+?)---/;
 	const info = content.match(regex);
 
 
 	if(info && info.length){
-	// console.log(info[0])
-	// console.log("@@@@@@@info")
 		
-		obj = getParams(info[0]);
+		obj = getParams(info[1]);
 		content = content.replace(regex, '');
 	}
 

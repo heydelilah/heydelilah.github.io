@@ -1,16 +1,15 @@
 import React, {Component} from "react";
-
+import ReactDOM from "react-dom";
+import $ from 'jquery';
 import ReactMarkdown from "react-markdown";
 import list from "../output/list.json";
 import hljs from "./libs/highlight.min.js";
+import {hot} from "react-hot-loader";
 
 import './App.css';
 import './css/highlight.css';
 import './css/tomorrow-night-eighties.css';
 
-
-console.log(hljs)
-hljs.initHighlightingOnLoad();
 
 class ListItem extends React.Component {
 	render(){
@@ -42,6 +41,13 @@ class Post extends Component{
 				<ReactMarkdown source={this.props.content} />
 			</div>
 		)
+	}
+	componentDidMount(){
+		const dom = ReactDOM.findDOMNode(this);
+		$(dom).find('pre code').each(function(i, block) {
+  			hljs.highlightBlock(block);
+		});
+
 	}
 }
 
@@ -88,4 +94,4 @@ class App extends Component{
 	}
 }
 
-export default App;
+export default hot(module)(App);
