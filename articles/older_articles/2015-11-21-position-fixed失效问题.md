@@ -3,9 +3,9 @@ layout: post
 title:  关于 position: fixed 失效问题
 date:   2015-11-24
 categories: Note
-tag: "学习笔记"
-desc: "从 css 动画导致了 position: fixed 属性失效的问题，探究 css 动画的秘密。"
-imgUrl: "data/post_imgs/position-fixed2.png"
+tag: 学习笔记
+desc: 从 css 动画导致了 position: fixed 属性失效的问题，探究 css 动画的秘密。
+imgUrl: data/post_imgs/position-fixed2.png
 ---
 
 ### 一、背景

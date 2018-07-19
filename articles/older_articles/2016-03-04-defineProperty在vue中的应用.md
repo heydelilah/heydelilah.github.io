@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  Object.defineProperty()函数 在 vue 响应式系统的中应用
+title:  Object.defineProperty()函数 在 vue 中的应用
 date:   2016-03-04
 categories: Note
-tag: "学习笔记"
-desc: "Vue.js 框架是一个入门门槛低、上手非常快的框架，它也实现了类似 `Angular` MVVM 双向绑定响应系统，但实现方式更为优雅、简洁。其中最主要使用了 ES5 `Object.defineProperty()`，通过设置 getter/setter 勾子，实现监听 model 的变化，作出相应的视图响应。下面我们从 ES5 的 JS 对象说起..."
-imgUrl: "data/post_imgs/define-property/attributes-object.png"
+tag: 学习笔记
+desc: Vue.js 框架是一个入门门槛低、上手非常快的框架，它也实现了类似 `Angular` MVVM 双向绑定响应系统，但实现方式更为优雅、简洁。其中最主要使用了 ES5 `Object.defineProperty()`，通过设置 getter/setter 勾子，实现监听 model 的变化，作出相应的视图响应。下面我们从 ES5 的 JS 对象说起...
+imgUrl: data/post_imgs/define-property/attributes-object.png
 ---
 
 ### 一、前言
