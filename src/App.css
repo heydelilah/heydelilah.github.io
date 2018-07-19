@@ -30,7 +30,9 @@ header{
   height: 200px;
   line-height: 150px;
 }
-
+.hide{
+  display: none;
+}
 .PostMain{
   float: left;
   width: 60%;
@@ -87,7 +89,18 @@ header{
   margin-top: 10px;
   line-height: 20px;
 }
+.PostPager{
+  text-align: right;
+}
+.PostPager button{
+  padding: 3px;
 
+  vertical-align: middle;
+}
+.PostPager span{
+  margin: 0 10px;
+  vertical-align: middle;
+}
 footer{
   color: #999;
   text-align: center;

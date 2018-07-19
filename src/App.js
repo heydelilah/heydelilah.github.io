@@ -14,8 +14,10 @@ import './css/tomorrow-night-eighties.css';
 
 class ListItem extends React.Component {
 	render(){
+		const start = this.props.pageCounter*this.props.pageNumber;
+		const postData = list.older_articles.slice(start, start+this.props.pageNumber);
 		
-		var articles = this.props.data.map((item, index) => 
+		var articles = postData.map((item, index) => 
 			<li className="PostItem" 
 				key={index} >
 				<div className="PostImage"><img src={'./'+item.imgUrl}/></div>
@@ -68,11 +70,18 @@ class Post extends Component{
 
 class Pager extends Component{
 	render(){
+		const showPre = this.props.current <= 0 ? false: true;
+		const showNext = this.props.current+1 >= this.props.amount ? false : true;
+		
 		return (
-			<div>
-				<button onClick={()=>this.props.onClick("pre")}>Pre</button>
-				<span>{this.props.current}</span>
-				<button onClick={()=>this.props.onClick("next")}>Next</button>
+			<div className="PostPager">
+				<button 
+					className={showPre?'':'hide'}
+					onClick={()=>this.props.onClick("pre")}>上一页</button>
+				<span> 第 {this.props.current+1} 页 </span>
+				<button 
+					className={showNext?'':'hide'}
+					onClick={()=>this.props.onClick("next")}>下一页</button>
 			</div>
 		)
 	}
@@ -111,7 +120,7 @@ class App extends Component{
 	}
 	togglePager(type){
 		var pageCounter = this.state.pageCounter;
-
+		var amount = Math.ceil(list.older_articles.length/this.pageNumber)-1;
 		if(type=="pre"){
 			pageCounter--;
 		}
@@ -119,29 +128,31 @@ class App extends Component{
 			pageCounter++;
 		}
 
+
 		this.setState({
 			pageCounter: pageCounter
 		});
 	}
 	render(){
+		var amount = Math.ceil(list.older_articles.length/this.pageNumber);
 
-
-		const postData = list.older_articles.slice(this.state.pageCounter, this.pageNumber);
-
-		console.log(list.older_articles.length, this.state.pageCounter, this.pageNumber)
 		return (<div className="main">
 
 			<header onClick={()=>this.backToHome()}>Heydelilah</header>
 
 			<div className="">
-				{this.state.isShowList ? <ListItem data={postData} onClick={(i)=>this.toggle(i)} /> :
-				<Post content={this.state.content} onClick={()=>this.backToHome()} />	
+				{this.state.isShowList ? 
+					<ListItem 
+						pageCounter={this.state.pageCounter} 
+						pageNumber = {this.pageNumber}
+						onClick={(i)=>this.toggle(i)} /> :
+					<Post content={this.state.content} onClick={()=>this.backToHome()} />	
 				}
 			</div>
 
 			<Pager 
-				data={postData}
-				current={this.state.pageCounter+1}
+				amount={amount}
+				current={this.state.pageCounter}
 				onClick={(i)=>this.togglePager(i)}/>
 			<footer>2018</footer>
 		</div>)
